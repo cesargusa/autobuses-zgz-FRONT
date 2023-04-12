@@ -1,5 +1,5 @@
 {
-    "welcome": "Welcome",
-    "hello": "Hello",
-    "goodbye": "Goodbye"
+    "CloseSession":"Close session",
+    "SearchLine":"Search for a line",
+    "Favorites":"Favorites"
   }

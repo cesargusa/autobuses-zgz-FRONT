@@ -16,7 +16,7 @@
             <li class="nav-item">
               <a style="cursor: pointer;" data-bs-toggle="tab" aria-expanded="false" class="nav-link" id="favoritesTab" (click)="changeLineBusTab('favoritesTab')">
                 <i class="mdi mdi-account-circle d-md-none d-block"></i>
-                <span class="d-none d-md-block">FAVORITOS</span>
+                <span class="d-none d-md-block">{{"Favorites" | translate | uppercase }}</span>
               </a>
             </li>
 
@@ -34,7 +34,6 @@
             </div>
             <div class="tab-pane" id="linesFavoriteContent">
                 <h1>Aquí van favoritos</h1>
-                <h1>{{"welcome" | translate}}</h1>
             </div>
   
           </div>

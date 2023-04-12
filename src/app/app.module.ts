@@ -8,8 +8,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './home/header/header.component';
-import { ListBusLinesComponent } from './list-bus-lines/list-bus-lines.component';
+import { ListBusLinesComponent } from './components/list-bus-lines/list-bus-lines.component';
 import { AppTranslateModule } from './app.translate';
+import { BusLineInfoComponent } from './components/bus-line-info/bus-line-info.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -21,6 +22,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     HeaderComponent,
     ListBusLinesComponent,
+    BusLineInfoComponent,
     
   ],
   imports: [

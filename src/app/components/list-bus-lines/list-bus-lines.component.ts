@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BusLine } from '../model/bus-line';
+import { BusLine } from '../../model/bus-line';
 
 @Component({
   selector: 'app-list-bus-lines',

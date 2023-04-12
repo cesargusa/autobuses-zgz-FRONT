@@ -1,6 +1,6 @@
 {
-    "welcome": "Bienvenido",
-    "hello": "Hola",
-    "goodbye": "Adiós"
+    "CloseSession":"Cerrar sesión",
+    "SearchLine":"Busque una línea",
+    "Favorites":"Favoritos"
   }
   

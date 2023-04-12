@@ -1,5 +1,5 @@
 <div class="form-group col-10 row text-center mx-auto" >
-  <input type="text" id="simpleinput" class="form-control" [(ngModel)]="busLineValue" (input)="filterBusLines()">
+  <input type="text" id="simpleinput" class="form-control" [(ngModel)]="busLineValue" (input)="filterBusLines()" placeholder="{{'SearchLine' | translate}}" />
 </div>
 
 <div *ngIf="busLines.length === 0" class="row col-12 text-center">
