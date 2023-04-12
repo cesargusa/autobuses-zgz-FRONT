@@ -1,0 +1,33 @@
+<div class="form-group col-10 row text-center mx-auto" >
+  <input type="text" id="simpleinput" class="form-control" [(ngModel)]="busLineValue" (input)="filterBusLines()">
+</div>
+
+<div *ngIf="busLines.length === 0" class="row col-12 text-center">
+  <h1>No existen lineas</h1>
+</div>
+<div id="containerBusLines" class="row">
+ 
+  <div *ngIf="spinnerTrue" class="row col-12 mx-auto text-center">
+      <div class="spinner-border text-light" role="status">
+
+  </div>
+  </div>
+
+
+  <div *ngFor="let busLine of busLines" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+
+        <!-- <a href='lineInfo.html?lineId=${allBusLines[numero].valor}'> -->
+        <div class="card border-danger border">
+            <div class="card-body">
+                 <h1 class="card-title text-danger text-center">{{ busLine }}</h1>
+            </div>
+        </div> 
+        <!-- </a> -->
+    </div>
+    <div>
+  
+    </div>
+    <div>
+      <span class="fs-4">Total: {{busLines.length}}</span>
+    </div>
+  </div>

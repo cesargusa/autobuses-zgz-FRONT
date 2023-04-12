@@ -24,21 +24,19 @@
 
           <div class="tab-content">
             <div class="tab-pane show active" id="linesBusContent">
-              <div class="mb-3">
-                <input type="text" id="searchLineBus" name="example-input-large" class="form-control form-control-lg" placeholder="Introduzca una linea" >
-            </div>
+         
               <div class="row p-2 m-2 " id="containerLines">
                 
-                <!-- Contenido de las lineas -->
+    <app-list-bus-lines></app-list-bus-lines>
+                
 
               </div>
             </div>
             <div class="tab-pane" id="linesFavoriteContent">
                 <h1>Aquí van favoritos</h1>
+                <h1>{{"welcome" | translate}}</h1>
             </div>
-            <!-- <div class="tab-pane" id="settings-b2">
-              <p>...</p>
-            </div> -->
+  
           </div>
 
         </div>
