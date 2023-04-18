@@ -12,6 +12,8 @@ import { HeaderComponent } from './home/header/header.component';
 import { ListBusLinesComponent } from './components/list-bus-lines/list-bus-lines.component';
 import { AppTranslateModule } from './app.translate';
 import { BusLineInfoComponent } from './components/bus-line-info/bus-line-info.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -28,6 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
 AppRoutingModule,
     FormsModule,
@@ -38,6 +41,7 @@ AppRoutingModule,
           deps: [HttpClient]
       }
   }),
+  ToastrModule.forRoot(),
   AppTranslateModule,
 
 

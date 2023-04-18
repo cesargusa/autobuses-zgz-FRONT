@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BusLine } from '../../model/bus-line';
-import { catchError } from 'rxjs';
-import { throwError } from 'rxjs';
+
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-bus-lines',
@@ -17,7 +17,7 @@ export class ListBusLinesComponent implements OnInit {
   busLineValue:string = ''
   spinnerTrue:boolean = true
   errorLines=false
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private toastr: ToastrService) {
   }
 
   ngOnInit(): void {
@@ -56,5 +56,24 @@ export class ListBusLinesComponent implements OnInit {
         busLine.toLowerCase().includes(this.busLineValue.toLowerCase())
       );
       this.spinnerTrue = false
+  }
+
+  addFavourite(id:string){
+    let favouriteIcon = document.getElementById(`favouriteIcon${id}`)
+    if(favouriteIcon?.classList.contains("mdi-heart-outline")){
+      favouriteIcon?.classList.remove('mdi-heart-outline')
+      favouriteIcon?.classList.add('mdi-heart')
+      this.toastr.success(`Linea ${id} añadida a favoritos.`, 'Añadida', { 
+        positionClass: 'toast-bottom-left' ,
+        timeOut: 2000
+      });
+    }else{
+      favouriteIcon?.classList.remove('mdi-heart')
+      favouriteIcon?.classList.add('mdi-heart-outline')
+      this.toastr.error(`Linea ${id} eliminada de favoritos.`, 'Eliminada', { 
+        positionClass: 'toast-bottom-left' ,
+        timeOut: 2000
+      });
+    }
   }
 }
