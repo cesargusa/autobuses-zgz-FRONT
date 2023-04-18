@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BusLine } from '../../model/bus-line';
+import { catchError } from 'rxjs';
+import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-list-bus-lines',
@@ -14,6 +16,7 @@ export class ListBusLinesComponent implements OnInit {
   totalCount: number = 0;
   busLineValue:string = ''
   spinnerTrue:boolean = true
+  errorLines=false
   constructor(private http: HttpClient) {
   }
 
@@ -22,25 +25,28 @@ export class ListBusLinesComponent implements OnInit {
     //Llama al cargar la pagina por primera vez
     this.getData();
   }
-
   getData() {
-    const URL ='https://www.zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/linea-autobus'
-    this.spinnerTrue = true
-    this.http
-    .get<BusLine>(URL)
-    .subscribe((data: BusLine) => {
-      this.busLinesString = data.result;
-      this.busLinesString.forEach((element) => {
-        this.busLines.push(element.slice(96, element.length).replace('_', ' '));
-        this.busLines.sort();
-
-      });
-      
-      this.allBusLines = this.busLines.slice(); // Hacer una copia de la lista completa
-      this.totalCount = data.totalCount;
-      this.spinnerTrue=false
+    const URL = 'https://www.zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/linea-autobus';
+    this.spinnerTrue = true;
+    this.http.get<BusLine>(URL)
+    .subscribe({
+      next: (data: BusLine) => {
+        this.busLinesString = data.result;
+        this.busLinesString.forEach((element) => {
+          this.busLines.push(element.slice(96, element.length).replace('_', ' '));
+          this.busLines.sort();
+        });
+        this.allBusLines = this.busLines.slice(); // Hacer una copia de la lista completa
+        this.totalCount = data.totalCount;
+        this.spinnerTrue=false;
+      },
+      error: (error) => {
+        this.spinnerTrue=false;
+        this.errorLines = true
+      }
     });
   }
+  
 
   filterBusLines() {
     this.spinnerTrue = true

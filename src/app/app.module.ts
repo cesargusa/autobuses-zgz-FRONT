@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';  // <<<< import it here
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing/app-routing.module'; // Importa AppRoutingModule
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -28,6 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   imports: [
     BrowserModule,
     HttpClientModule,
+AppRoutingModule,
     FormsModule,
     TranslateModule.forRoot({
       loader: {
@@ -36,7 +38,8 @@ export function HttpLoaderFactory(http: HttpClient) {
           deps: [HttpClient]
       }
   }),
-  AppTranslateModule
+  AppTranslateModule,
+
 
 
   ],

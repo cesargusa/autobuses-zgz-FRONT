@@ -1,8 +1,8 @@
-<div class="form-group col-10 row text-center mx-auto" >
-  <input type="text" id="simpleinput" class="form-control" [(ngModel)]="busLineValue" (input)="filterBusLines()" placeholder="{{'SearchLine' | translate}}" />
+<div class="row form-group col-12 col-xl-10 col-lg-10 col-md-10 text-center mx-lg-auto" >
+  <input type="text" id="simpleinput" class="form-control" [(ngModel)]="busLineValue" (input)="filterBusLines()" placeholder="{{'SearchLine' | translate}}" autocomplete="off" autofocus/>
 </div>
 
-<div *ngIf="busLines.length === 0" class="row col-12 text-center">
+<div *ngIf="busLines.length === 0 || errorLines" class="row col-12 text-center">
   <h1>No existen lineas</h1>
 </div>
 <div id="containerBusLines" class="row">
@@ -16,18 +16,18 @@
 
   <div *ngFor="let busLine of busLines" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
 
-        <!-- <a href='lineInfo.html?lineId=${allBusLines[numero].valor}'> -->
-        <div class="card border-danger border">
-            <div class="card-body">
-                 <h1 class="card-title text-danger text-center">{{ busLine }}</h1>
-            </div>
-        </div> 
-        <!-- </a> -->
-    </div>
-    <div>
+    <a [routerLink]="['/BusLineInfo', busLine]">
+      <div class="card border-danger border">
+        <div class="card-body">
+          <h1 class="card-title text-danger text-center">{{ busLine }}</h1>
+        </div>
+      </div>
+    </a>
   
-    </div>
-    <div>
-      <span class="fs-4">Total: {{busLines.length}}</span>
-    </div>
   </div>
+  
+  
+  <div>
+    <span class="fs-4">Total: {{busLines.length}}</span>
+  </div>
+  

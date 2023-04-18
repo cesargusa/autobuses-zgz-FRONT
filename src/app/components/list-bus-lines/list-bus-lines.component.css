@@ -1,0 +1,10 @@
+input[type=text] {
+    padding: 2%;
+    font-size: 22px;
+    }
+
+    
+
+    .nav-tabs.nav-bordered li a.active {
+        border-bottom: 2px solid #FF0000 !important;
+    }

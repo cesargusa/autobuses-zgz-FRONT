@@ -1,1 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+.nav-tabs.nav-bordered li a.active {
+    border-bottom: 2px solid #FA5C7C !important;
+}
+
+A:link { text-decoration: none !important; color:white !important}
+A:hover {  text-decoration: none  !important; color:white !important}
+A:visited { text-decoration: none  !important; color:white !important}
