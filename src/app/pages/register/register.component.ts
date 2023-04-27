@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -22,13 +22,14 @@ export class RegisterComponent {
 
   CreateUser() {
     const URL = `${environment.urlBack}/api/Users/CreateUser`;
+   console.log(moment().format('YYYY-MM-DDTHH:mm:ss'))
     console.log(this.user);
     const body = {
       Email: this.email,
       UserName: this.user,
       Password: this.password,
-      CreateDate: '2020-12-22 20:20:20',
-      LastConnection: '2020-12-22 20:20:20',
+      CreateDate: moment().format('YYYY-MM-DDTHH:mm:ssZ'),
+      LastConnection: moment().format('YYYY-MM-DDTHH:mm:ssZ'),
       IsActive: true,
     };
     if (this.password === this.repeatPassword) {
