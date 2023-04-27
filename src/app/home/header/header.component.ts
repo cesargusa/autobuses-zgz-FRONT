@@ -7,10 +7,19 @@ import { Component, OnInit,HostListener   } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
+  isMenuOpen = false;
+  isUserMenuOpen = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  toggleUserMenu() {
+    this.isUserMenuOpen = !this.isUserMenuOpen;
   }
   //Funcion para desplegar el submenu
   changeMenuProfile() {

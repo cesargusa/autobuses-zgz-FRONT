@@ -1,0 +1,7 @@
+@media (max-width: 576px) {
+    #subMenu {
+      position: absolute;
+      right: 0;
+    }
+  }
+  

@@ -1,5 +1,6 @@
 import { Component, OnInit   } from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import SimpleBar from 'simplebar';
 
 @Component({
   selector: 'app-home',
@@ -17,8 +18,10 @@ this.titleService.setTitle('Autobuses de Zaragoza')
 
 
   ngOnInit(): void {
-   
-  }
+    const element = document.querySelector('[data-simplebar]');
+    if (element instanceof HTMLElement) {
+      new SimpleBar(element);
+    }  }
 
 
   changeLineBusTab(tab: string) {

@@ -1,0 +1,15 @@
+/* Establecer el tema claro */
+body {
+    background-color: #f8f9fa;
+    color: #343a40;
+  }
+  
+  /* Estilos para la barra de navegación */
+  .navbar-light .navbar-brand {
+    color: #ffffff;
+  }
+  
+  .navbar-light .nav-link {
+    color: #ffffff;
+  }
+  

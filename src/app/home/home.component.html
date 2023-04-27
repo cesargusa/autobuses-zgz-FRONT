@@ -1,46 +1,51 @@
 <app-header></app-header>
-<div>
-  <div class="col-12 p-0">
-    <div class="x_panel">
-
-      <div class="x_content">
-
-        <ul class="nav nav-tabs nav-justified nav-bordered mb-3">
-          <li class="nav-item">
-            <a style="cursor: pointer;" data-bs-toggle="tab" aria-expanded="true" class="nav-link active"
-              id="lineBusTab" (click)="changeLineBusTab('lineBusTab')">
-              <i class="mdi mdi-bus-multiple d-md-none d-block"></i>
-              <span class="d-none d-md-block">LINEAS BUSES</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a style="cursor: pointer;" data-bs-toggle="tab" aria-expanded="false" class="nav-link" id="favoritesTab"
-              (click)="changeLineBusTab('favoritesTab')">
-              <i class="mdi mdi-heart d-md-none d-block"></i>
-              <span class="d-none d-md-block">{{"Favorites" | translate | uppercase }}</span>
-            </a>
-          </li>
-        </ul>
-
-        <div class="tab-content">
-          <div class="tab-pane show active" id="linesBusContent">
-
-            <div class="row p-2 m-2 " id="containerLines">
-
-              <app-list-bus-lines></app-list-bus-lines>
-
+<div data-simplebar data-simplebar-auto-hide="false" style="height: 100vh;">
+  <div>
+    <div class="col-12 p-0">
+      <div class="x_panel">
+  
+        <div class="x_content">
+  
+          <ul class="nav nav-tabs nav-justified nav-bordered mb-3">
+            <li class="nav-item">
+              <a style="cursor: pointer;" data-bs-toggle="tab" aria-expanded="true" class="nav-link active"
+                id="lineBusTab" (click)="changeLineBusTab('lineBusTab')">
+                <i class="mdi mdi-bus-multiple d-md-none d-block"></i>
+                <span class="d-none d-md-block">LINEAS BUSES</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a style="cursor: pointer;" data-bs-toggle="tab" aria-expanded="false" class="nav-link" id="favoritesTab"
+                (click)="changeLineBusTab('favoritesTab')">
+                <i class="mdi mdi-heart d-md-none d-block"></i>
+                <span class="d-none d-md-block">{{"Favorites" | translate | uppercase }}</span>
+              </a>
+            </li>
+          </ul>
+  
+          <div class="tab-content">
+            <div class="tab-pane show active" id="linesBusContent">
+  
+              <div class="row p-2 m-2 " id="containerLines">
+  
+                <app-list-bus-lines></app-list-bus-lines>
+  
+              </div>
             </div>
+            <div class="tab-pane" id="linesFavoriteContent">
+              <h1>Aquí van favoritos</h1>
+              <a [routerLink]="['/Register']">
+              <span>Reistrate aqui</span>
+            </a>
+            </div>
+  
           </div>
-          <div class="tab-pane" id="linesFavoriteContent">
-            <h1>Aquí van favoritos</h1>
-          </div>
-
+  
         </div>
-
       </div>
     </div>
-  </div>
-  <div id="containerBusLines" class="row">
-
+    <div id="containerBusLines" class="row">
+  
+    </div>
   </div>
 </div>
