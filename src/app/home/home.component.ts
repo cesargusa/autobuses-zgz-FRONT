@@ -1,7 +1,7 @@
 import { Component, OnInit   } from '@angular/core';
 import {Title} from "@angular/platform-browser";
 import SimpleBar from 'simplebar';
-
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,9 +10,10 @@ import SimpleBar from 'simplebar';
 })
 export class HomeComponent implements OnInit {
   welcome: string = '';
-  constructor(private titleService:Title) {
+  logged:boolean = false
+  constructor(private titleService:Title, private auth:AuthService) {
 this.titleService.setTitle('Autobuses de Zaragoza')
-
+this.logged = this.auth.getLogged()
   }
  
 

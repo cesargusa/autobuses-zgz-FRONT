@@ -2,9 +2,9 @@
 <div *ngIf="spinnerTrue;then load else notLoad"></div>
 
 <ng-template #load>
-    <div class="row col-12 mx-auto text-center">
-        <div class="spinner-border text-light" role="status"></div>
-    </div>
+    <ng-container >
+        <app-spinner></app-spinner>
+    </ng-container>
 </ng-template>
 <ng-template #notLoad>
     <div class="mx-3">

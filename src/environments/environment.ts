@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  urlBack: 'http://localhost:3000'
+  // urlBack: 'http://localhost:3000'
 
   //PRO
-  // urlBack: 'http://localhost:3000/'
+  urlBack: 'https://nett-back-bus-node.onrender.com'
 };
 
 /*

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BusLine } from '../../model/bus-line';
-
+import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -17,8 +17,9 @@ export class ListBusLinesComponent implements OnInit {
   busLineValue:string = ''
   spinnerTrue:boolean = true
   errorLines=false
-  constructor(private http: HttpClient,private toastr: ToastrService) {
+  constructor(private http: HttpClient,private toastr: ToastrService, private auth:AuthService) {
   }
+  // userName:string = this.auth.userName
 
   ngOnInit(): void {
     

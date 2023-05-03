@@ -4,6 +4,7 @@ import { BusLineInfoComponent } from '../components/bus-line-info/bus-line-info.
 import { ErrorComponent } from '../pages/error/error-component.component';
 import { HomeComponent } from '../home/home.component';
 import { RegisterComponent } from '../pages/register/register.component';
+import { LoginComponent } from '../pages/login/login.component';
 
 // Define las rutas de tu aplicación
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'Home', component: HomeComponent },
   { path: 'BusLineInfo/:lineId', component: BusLineInfoComponent },
   { path: 'Register', component: RegisterComponent },
+  {path: 'Login', component: LoginComponent},
   {path: '**', component:ErrorComponent}
 ];
 

@@ -1,6 +1,18 @@
 {
     "CloseSession":"Cerrar sesión",
     "SearchLine":"Busque una línea",
-    "Favorites":"Favoritos"
+    "Favorites":"Favoritos",
+
+    "User":"Nombre de Usuario",
+    "Email":"Correo Electrónico",
+    "Password":"Contraseña",
+    "UserRegisterPlaceholder": "Introduzca un nombre de usuario",
+    "EmailRegisterPlaceholder":"Introduzca un correo electrónico",
+    "PasswordRegisterPlaceholder": "Introduzca una contraseña",
+    "PasswordTextError":"Las contraseñas no coinciden",
+    "Register":"Registrar",
+    "LogIn":"Iniciar Sesión",
+    "AlreadyAccount":"¿Tienes una cuenta?"
+
   }
   

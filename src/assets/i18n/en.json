@@ -1,5 +1,17 @@
 {
     "CloseSession":"Close session",
     "SearchLine":"Search for a line",
-    "Favorites":"Favorites"
+    "Favorites":"Favorites",
+
+      "User":"Username",
+      "Email":"Email",
+      "Password":"Password",
+    "UserRegisterPlaceholder": "Enter a user name",
+    "EmailRegisterPlaceholder":"Enter an e-mail address",
+    "PasswordRegisterPlaceholder": "Enter a passwor",
+    "PasswordTextError":"Passwords do not match",
+    "Register":"Register",
+    "LogIn":"Log In",
+    "AlreadyAccount":"Already have account?"
+
   }

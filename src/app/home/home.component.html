@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div data-simplebar data-simplebar-auto-hide="false" style="height: 100vh;">
+<!-- <div data-simplebar data-simplebar-auto-hide="false" style="height: 100vh;"> -->
   <div>
     <div class="col-12 p-0">
       <div class="x_panel">
@@ -34,9 +34,13 @@
             </div>
             <div class="tab-pane" id="linesFavoriteContent">
               <h1>Aquí van favoritos</h1>
-              <a [routerLink]="['/Register']">
-              <span>Reistrate aqui</span>
-            </a>
+              <div *ngIf="logged == false">
+                <a [routerLink]="['/Register']">
+                  <span>Reistrate aqui</span>
+                </a>
+
+              </div>
+             
             </div>
   
           </div>
@@ -48,4 +52,4 @@
   
     </div>
   </div>
-</div>
+<!-- </div> -->

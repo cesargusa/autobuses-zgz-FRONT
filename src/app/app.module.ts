@@ -18,6 +18,11 @@ import { RegisterComponent } from './pages/register/register.component';
 import { FooterRegisterComponent } from './components/footer-register/footer-register.component';
 import { ErrorComponent } from './pages/error/error-component.component';
 import { AcceptTermsComponent } from './components/accept-terms/accept-terms.component';
+import { LoginComponent } from './pages/login/login.component';
+import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { PathLocationStrategy, LocationStrategy } from '@angular/common';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -34,9 +39,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterRegisterComponent,
     ErrorComponent,
     AcceptTermsComponent,
+    LoginComponent,
+    SpinnerComponent,
     
   ],
-  imports: [
+  imports: [RouterModule.forRoot([]),
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -55,7 +62,7 @@ AppRoutingModule,
 
 
   ],
-  providers: [],
+  providers: [Router,{provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  urlBack: 'https://nett-back-bus-node.onrender.com'
+
 };

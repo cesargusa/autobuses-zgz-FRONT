@@ -1,5 +1,5 @@
 import { Component, OnInit,HostListener   } from '@angular/core';
-
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +9,13 @@ import { Component, OnInit,HostListener   } from '@angular/core';
 export class HeaderComponent implements OnInit {
   isMenuOpen = false;
   isUserMenuOpen = false;
-  constructor() { }
+userName:string = ''
+logged:boolean = false
+  constructor(private auth:AuthService) { 
+      this.userName = this.auth.getUserName()
+     
+  }
+
 
   ngOnInit(): void {
   }
@@ -39,5 +45,12 @@ onWindowClick(event: Event) {
   if (dropdownMenu && dropdownMenu.classList.contains('show') && !dropdownUserMenuLink?.contains(event.target as Node)) {
     dropdownMenu.classList.remove('show');
   }
+}
+
+CloseSession(){
+  this.auth.setUserName('')
+  this.userName = ''
+  this.auth.setLogged(false)
+  this.logged = false
 }
 }

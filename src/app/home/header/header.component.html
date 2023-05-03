@@ -5,17 +5,28 @@
       <span class="navbar-toggler-icon navbar-light"></span>
     </button>
     
-    <div class="collapse navbar-collapse" [ngClass]="{'show': isMenuOpen}">
+    <div class="collapse navbar-collapse" [ngClass]="{'show': isMenuOpen}" *ngIf="userName != ''">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownUserMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" (click)="toggleUserMenu()">
-            Usuario
+            {{userName}}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown" [ngClass]="{'show': isUserMenuOpen}">
             <li>
-              <a class="dropdown-item">{{"CloseSession" | translate}}</a>        
+              <a style="cursor: pointer;" class="dropdown-item" (click)="CloseSession()">{{"CloseSession" | translate}}</a>        
             </li>
           </ul>
+        </li>      
+      </ul>
+    </div>
+   
+    <div *ngIf="userName === ''">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a  role="button" [routerLink]="['/Login']">
+            Iniciar Sesion
+          </a>
+         
         </li>      
       </ul>
     </div>
