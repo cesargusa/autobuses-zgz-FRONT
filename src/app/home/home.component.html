@@ -14,7 +14,7 @@
                 <span class="d-none d-md-block">LINEAS BUSES</span>
               </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item"  *ngIf="logged == true">
               <a style="cursor: pointer;" data-bs-toggle="tab" aria-expanded="false" class="nav-link" id="favoritesTab"
                 (click)="changeLineBusTab('favoritesTab')">
                 <i class="mdi mdi-heart d-md-none d-block"></i>
@@ -33,7 +33,12 @@
               </div>
             </div>
             <div class="tab-pane" id="linesFavoriteContent">
+            
+
               <h1>Aquí van favoritos</h1>
+              <!-- <div *ngFor="let item of busLineListArray">
+                <h1>d</h1>
+             </div> -->
               <div *ngIf="logged == false">
                 <a [routerLink]="['/Register']">
                   <span>Reistrate aqui</span>

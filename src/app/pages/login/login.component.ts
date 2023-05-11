@@ -17,6 +17,7 @@ export class LoginComponent {
   password:string = ''
   user:string = ''
   logged:boolean = false
+  spinnerTrue:boolean= false
   ngOnInit(): void {
     //Llama al cargar la pagina por primera vez
   }
@@ -24,6 +25,7 @@ export class LoginComponent {
   constructor(private http: HttpClient, private auth:AuthService, private router:Router, private toastr:ToastrService){}
 
   Login(){
+    this.spinnerTrue=true
     const URL = `${environment.urlBack}/api/users/Login`
 
     const body = {
@@ -38,12 +40,15 @@ export class LoginComponent {
         console.log(moment(bodyPutLastConnection.LastConnection).format('YYYY-MM-DD HH:mm:ss'))
         this.auth.setUserName(res.userName)
         this.auth.setLogged(res.succes)
+        this.auth.setUserId(Number(res.idUser))
          this.router.navigate(['/'])
+         this.spinnerTrue=false
       }else{
         this.toastr.error(`Email o Contraseña Incorrectas`, 'Fallo al iniciar sesión', { 
           positionClass: 'toast-bottom-left' ,
           timeOut: 2000
         });
+        this.spinnerTrue=false
       }
 
     })

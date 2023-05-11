@@ -3,6 +3,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BusLineInfo } from 'src/app/model/bus-line-info';
 import * as moment from 'moment'
+import { environment } from 'src/environments/environment';
+import FavoriteLines from 'src/app/model/favoriteLines';
 @Component({
   selector: 'app-bus-line-info',
   templateUrl: './bus-line-info.component.html',
@@ -51,5 +53,6 @@ this.getLineInfo()
 migasPan(){
 
 }
+
 
 }

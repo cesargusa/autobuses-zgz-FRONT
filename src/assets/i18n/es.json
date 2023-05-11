@@ -11,8 +11,11 @@
     "PasswordRegisterPlaceholder": "Introduzca una contraseña",
     "PasswordTextError":"Las contraseñas no coinciden",
     "Register":"Registrar",
+    "Register2":"Regístrate",
     "LogIn":"Iniciar Sesión",
-    "AlreadyAccount":"¿Tienes una cuenta?"
+    "AlreadyAccount":"¿Tienes una cuenta?",
+    "DontHaveAccount": "¿No tienes una cuenta?",
+    "RepeatPassword":"Repite la contraseña"
 
   }
   

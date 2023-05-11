@@ -11,7 +11,10 @@
     "PasswordRegisterPlaceholder": "Enter a passwor",
     "PasswordTextError":"Passwords do not match",
     "Register":"Register",
+    "Register2":"Register",
     "LogIn":"Log In",
-    "AlreadyAccount":"Already have account?"
+    "AlreadyAccount":"Already have account?",
+    "DontHaveAccount": "Don't have an account?",
+    "RepeatPassword":"Repeat password"
 
   }
