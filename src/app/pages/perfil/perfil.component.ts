@@ -73,8 +73,8 @@ export class PerfilComponent {
       text: "Se eliminara el usuario por completo",
       icon: 'question',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#F9375E',
+      cancelButtonColor: '#727CF5',
       confirmButtonText: 'Eliminar',
       cancelButtonText:'Cancelar'
     }).then((result) => {
