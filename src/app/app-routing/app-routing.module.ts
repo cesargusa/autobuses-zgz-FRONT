@@ -5,6 +5,7 @@ import { ErrorComponent } from '../pages/error/error-component.component';
 import { HomeComponent } from '../home/home.component';
 import { RegisterComponent } from '../pages/register/register.component';
 import { LoginComponent } from '../pages/login/login.component';
+import { PerfilComponent } from '../pages/perfil/perfil.component';
 
 // Define las rutas de tu aplicación
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'BusLineInfo/:lineId', component: BusLineInfoComponent },
   { path: 'Register', component: RegisterComponent },
   {path: 'Login', component: LoginComponent},
+  {path: 'Perfil', component: PerfilComponent},
   {path: '**', component:ErrorComponent}
 ];
 

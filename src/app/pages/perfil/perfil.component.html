@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="card">
+    <div class="card-body">
+        <h4 class="header-title mt-0 mb-3">Detalle de usuario</h4>
+     
+        <hr>
+
+        <div class="text-left">
+            <p class="text-muted fw-bold" >Nombre de Usuario: <span class="ml-2">{{username}}</span></p>
+
+            <p class="text-muted fw-bold">Correo Electrónico :<span class="ml-2">{{email}}</span></p>
+
+            <p class="text-muted fw-bold">Contraseña : <input class="ml-2" [value]="password" [(ngModel)]="password"></p>
+
+            <p class="text-muted fw-bold">Fecha de registro : <span class="ml-2">{{createDate}}</span></p>
+
+            <p class="text-muted fw-bold">Ultima Conexión :
+                <span class="ml-2"> {{lastConnection}} </span>
+            </p>
+            <div class="d-flex justify-content-start ">
+                <p class="text-muted mb-0"><strong><button class="btn btn-danger mx-3" (click)="DeleteUser()">Eliminar Usuario</button></strong>
+            </p>
+            <p class="text-muted mb-0"><strong><button class="btn btn-success" (click)="SaveChanges()">Guardar cambios</button></strong></p>
+            </div>
+           
+               
+
+        </div>
+    </div>
+</div>

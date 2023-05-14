@@ -1,0 +1,19 @@
+<article class="card-bus rounded-lg card-background-part">
+    <a [routerLink]="['/BusLineInfo', busLineId] ">
+      <header class="card-header bg-image-card">
+        <h4 class="card-header--title">Linea Bus Zaragoza</h4>
+      </header>
+      <div class="card-body">
+        <div class="d-flex justify-content-between mx-3 align-items-center">
+          <h2 class="fs-1 font-weight-bold card-text-color">{{busLineId}}</h2>
+        </div>
+      </div>
+    </a>
+    <div class="d-flex justify-content-end mx-3 mb-3" style="background-color: #404954;" *ngIf="logged == true">
+      <span *ngIf="busLineFavorite == false" class="mdi mdi-heart-outline mdi-heart-transform-color"
+        id='favouriteIcon{{busLineId}}' ></span>
+        <span *ngIf="busLineFavorite == true" class="mdi mdi-heart mdi-heart-transform-color"
+        id='favouriteIcon{{busLineId}}' ></span>
+    </div>
+  </article>
+

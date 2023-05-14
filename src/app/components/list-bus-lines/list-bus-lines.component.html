@@ -1,5 +1,5 @@
 <div class="row form-group col-12 col-xl-10 col-lg-10 col-md-10 text-center mx-lg-auto">
-  <input type="text" id="simpleinput" class="form-control" [(ngModel)]="busLineValue" (input)="filterBusLines()"
+  <input type="text" id="simpleinput" class="form-control" c (input)="filterBusLines()"
     placeholder="{{'SearchLine' | translate}}" autocomplete="off" autofocus />
 </div>
 
@@ -15,24 +15,7 @@
 <div class="row">
   <div *ngFor="let busLine of busLines" class="col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-3">
 
-    <article class="card-bus rounded-lg" style="background-color: #404954;">
-      <a [routerLink]="['/BusLineInfo', busLine.id] ">
-        <header class="card-header bg-image-card">
-          <h4 class="card-header--title">Linea Bus Zaragoza</h4>
-        </header>
-        <div class="card-body">
-          <div class="d-flex justify-content-between mx-3 align-items-center">
-            <h2 style="color:aliceblue" class="fs-1 font-weight-bold">{{busLine.id}}</h2>
-          </div>
-        </div>
-      </a>
-      <div class="d-flex justify-content-end mx-3 mb-3" style="background-color: #404954;" *ngIf="logged == true">
-        <span *ngIf="busLine.favorite == false" class="mdi mdi-heart-outline" style="transform: scale(3.5); cursor: pointer;color: #FA5C7C;"
-          id='favouriteIcon{{busLine}}' (click)="addFavourite(busLine)"></span>
-          <span *ngIf="busLine.favorite == true" class="mdi mdi-heart" style="transform: scale(3.5); cursor: pointer;color: #FA5C7C;"
-          id='favouriteIcon{{busLine}}' (click)="addFavourite(busLine)"></span>
-      </div>
-    </article>
+<app-card-bus [busLineId]="busLine.id" [logged]="logged" [busLineFavorite]="busLine.favorite" [busLine]="busLine" (click)="addFavourite(busLine)"></app-card-bus>
 
 
 

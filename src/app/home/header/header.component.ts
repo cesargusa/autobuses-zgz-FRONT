@@ -1,21 +1,23 @@
-import { Component, OnInit,HostListener   } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-
+import { SessionService } from 'src/app/services/session.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+
   isMenuOpen = false;
   isUserMenuOpen = false;
-userName:string = ''
-logged:boolean = false
-  constructor(private auth:AuthService) { 
-      this.userName = this.auth.getUserName()
-     
-  }
+  userName: string = '';
+  logged: boolean = false;
+  openPerfilModal:boolean = false
+  closeResult: string = '';
 
+  constructor(private auth: AuthService, private sessionService:SessionService) {
+    this.userName = this.auth.getUserName();
+  }
 
   ngOnInit(): void {
   }
@@ -29,28 +31,30 @@ logged:boolean = false
   }
   //Funcion para desplegar el submenu
   changeMenuProfile() {
-    let menuProfile = document.getElementById('dropdownUserMenuLink')
-    let subMenuProfile = document.getElementById('subMenu')
-    menuProfile?.classList.add('show')
-    subMenuProfile?.classList.add('show')
-  
+    let menuProfile = document.getElementById('dropdownUserMenuLink');
+    let subMenuProfile = document.getElementById('subMenu');
+    menuProfile?.classList.add('show');
+    subMenuProfile?.classList.add('show');
   }
-
   //Funcion para quitar el menu desplegable
-@HostListener('window:click', ['$event'])
-onWindowClick(event: Event) {
-  const dropdownMenu = document.querySelector('.dropdown-menu');
-  const dropdownUserMenuLink = document.querySelector('#dropdownUserMenuLink');
-
-  if (dropdownMenu && dropdownMenu.classList.contains('show') && !dropdownUserMenuLink?.contains(event.target as Node)) {
-    dropdownMenu.classList.remove('show');
+  @HostListener('window:click', ['$event'])
+  onWindowClick(event: Event) {
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const dropdownUserMenuLink = document.querySelector(
+      '#dropdownUserMenuLink'
+    );
+    if (
+      dropdownMenu &&
+      dropdownMenu.classList.contains('show') &&
+      !dropdownUserMenuLink?.contains(event.target as Node)
+    ) {
+      dropdownMenu.classList.remove('show');
+    }
   }
-}
 
-CloseSession(){
-  this.auth.setUserName('')
-  this.userName = ''
-  this.auth.setLogged(false)
-  this.logged = false
-}
+  CloseSession() {
+   this.sessionService.CloseSession()
+  }
+ 
+ 
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';  // <<<< import it here
+import { FormsModule } from '@angular/forms'; // <<<< import it here
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -23,46 +23,51 @@ import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { PathLocationStrategy, LocationStrategy } from '@angular/common';
 import { SpinnerComponent } from './components/spinner/spinner.component';
-
+import { CardBusComponent } from './components/card-bus/card-bus.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    HeaderComponent,
-    ListBusLinesComponent,
-    BusLineInfoComponent,
-    RegisterComponent,
-    FooterRegisterComponent,
-    ErrorComponent,
-    AcceptTermsComponent,
-    LoginComponent,
-    SpinnerComponent,
-    
-  ],
-  imports: [RouterModule.forRoot([]),
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-AppRoutingModule,
-    FormsModule,
-    TranslateModule.forRoot({
-      loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
-      }
-  }),
-  ToastrModule.forRoot(),
-  AppTranslateModule,
-
-
-
-  ],
-  providers: [Router,{provide: LocationStrategy, useClass: PathLocationStrategy}],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        HeaderComponent,
+        ListBusLinesComponent,
+        BusLineInfoComponent,
+        RegisterComponent,
+        FooterRegisterComponent,
+        ErrorComponent,
+        AcceptTermsComponent,
+        LoginComponent,
+        SpinnerComponent,
+        CardBusComponent,
+        PerfilComponent,
+    ],
+    providers: [
+        Router,
+        { provide: LocationStrategy, useClass: PathLocationStrategy },
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        RouterModule.forRoot([]),
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        FormsModule,
+        NgbModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient],
+            },
+        }),
+        ToastrModule.forRoot(),
+        AppTranslateModule,
+    ]
 })
-export class AppModule { }
+export class AppModule {}

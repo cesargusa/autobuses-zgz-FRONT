@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { environment } from 'src/environments/environment';
 import FavoriteLines from 'src/app/model/favoriteLines';
 import { BusLineService } from 'src/app/services/bus-line.service';
+import AddFavoriteCard from 'src/app/model/add-fovorite-card';
 
 @Component({
   selector: 'app-list-bus-lines',
@@ -117,22 +118,23 @@ const URL =
     this.spinnerTrue = false;
   }
 
-  addFavourite(id: string) {
-    this.addFavoriteLine(id);
-    let favouriteIcon = document.getElementById(`favouriteIcon${id}`);
+  addFavourite(addFavoriteCard: AddFavoriteCard) {
+    // this.addFavoriteLine(id);
+
+    let favouriteIcon = document.getElementById(`favouriteIcon${addFavoriteCard.id}`);
 
   
       if (favouriteIcon?.classList.contains('mdi-heart-outline')) {
         favouriteIcon?.classList.remove('mdi-heart-outline');
         favouriteIcon?.classList.add('mdi-heart');
-        this.toastr.success(`Linea ${id} añadida a favoritos.`, 'Añadida', {
+        this.toastr.success(`Linea ${addFavoriteCard.id} añadida a favoritos.`, 'Añadida', {
           positionClass: 'toast-bottom-left',
           timeOut: 2000,
         });
       } else {
         favouriteIcon?.classList.remove('mdi-heart');
         favouriteIcon?.classList.add('mdi-heart-outline');
-        this.toastr.error(`Linea ${id} eliminada de favoritos.`, 'Eliminada', {
+        this.toastr.error(`Linea ${addFavoriteCard.id} eliminada de favoritos.`, 'Eliminada', {
           positionClass: 'toast-bottom-left',
           timeOut: 2000,
         });
