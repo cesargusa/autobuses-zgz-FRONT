@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import FavoriteLines from 'src/app/model/favoriteLines';
 import { BusLineService } from 'src/app/services/bus-line.service';
 import AddFavoriteCard from 'src/app/model/add-fovorite-card';
+import { BusLineCard } from 'src/app/model/bus-line-card';
 
 @Component({
   selector: 'app-list-bus-lines',
@@ -17,6 +18,7 @@ export class ListBusLinesComponent implements OnInit {
   busLinesString: any[] = [];
   allBusLines: any[] = [];
   busLines: any[] = [];
+  inputLineValue:string =''
   favoritesLines: any[] = [];
   totalCount: number = 0;
   busLineValue: string = '';
@@ -62,35 +64,21 @@ export class ListBusLinesComponent implements OnInit {
 const URL =
       'https://www.zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/linea-autobus';
          this.spinnerTrue = true;
-   
-    
- 
     this.http.get<BusLine>(URL).subscribe({
       next: (data: BusLine) => {
         this.busLinesString = data.result;
         if(this.auth.getLogged() == true){
-        //     this.busLinesString.forEach((element) => {
-        
-        //   this.busLines.push({id:element.slice(96, element.length).replace('_', ' ')});
-        //   this.busLines.sort();
-   
-        // });
         this.busLinesString.forEach(element => {
           if(this.favoritesLines.includes(element.slice(96, element.length).replace('_', ' '))){
             this.busLines.push({id:element.slice(96, element.length).replace('_', ' '),favorite:true})
           }else{
             this.busLines.push({id:element.slice(96, element.length).replace('_', ' '),favorite:false})
-
           }
-
         });
       
         }else{
           this.busLinesString.forEach(element => {
             this.busLines.push({id:element.slice(96, element.length).replace('_', ' '),favorite:false})
-       
-  
-            
           });
         }
         this.allBusLines = this.busLines.slice(); // Hacer una copia de la lista completa
@@ -111,19 +99,17 @@ const URL =
   filterBusLines() {
     this.spinnerTrue = true;
     this.busLines = this.allBusLines.slice(); // Restaurar la lista completa
-
     this.busLines = this.allBusLines.filter((busLine) =>
-      busLine.id.toLowerCase().includes(this.busLineValue.toLowerCase())
+      busLine.id.toLowerCase().includes(this.inputLineValue.toLowerCase())
     );
     this.spinnerTrue = false;
   }
-
+  
   addFavourite(addFavoriteCard: AddFavoriteCard) {
     // this.addFavoriteLine(id);
 
     let favouriteIcon = document.getElementById(`favouriteIcon${addFavoriteCard.id}`);
-
-  
+    
       if (favouriteIcon?.classList.contains('mdi-heart-outline')) {
         favouriteIcon?.classList.remove('mdi-heart-outline');
         favouriteIcon?.classList.add('mdi-heart');

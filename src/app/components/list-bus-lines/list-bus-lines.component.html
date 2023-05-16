@@ -1,6 +1,6 @@
 <div class="row form-group col-12 col-xl-10 col-lg-10 col-md-10 text-center mx-lg-auto">
-  <input type="text" id="simpleinput" class="form-control" c (input)="filterBusLines()"
-    placeholder="{{'SearchLine' | translate}}" autocomplete="off" autofocus />
+  <input type="text" id="simpleinput" class="form-control" (input)="filterBusLines()"
+    placeholder="{{'SearchLine' | translate}}" autocomplete="off" autofocus [(ngModel)]="inputLineValue" />
 </div>
 
 <div *ngIf="busLines.length === 0 || errorLines" class="row col-12 text-center">
