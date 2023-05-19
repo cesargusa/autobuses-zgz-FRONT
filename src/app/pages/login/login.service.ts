@@ -28,7 +28,9 @@ export class LoginService {
     this.http.post<LoginModel>(URL,body).subscribe((res) => {
       if(res.succes == true){
        const  URL2 = `${environment.urlBack}/api/users/UpdateUser/${res.idUser}`
-        const bodyPutLastConnection = {LastConnection:moment().format('YYYY-MM-DDTHH:mm:ssZ')}
+        const bodyPutLastConnection = {
+          LastConnection:moment().format('YYYY-MM-DD HH:mm:ss')
+        }
         this.http.put(URL2,bodyPutLastConnection).subscribe()
         console.log(moment(bodyPutLastConnection.LastConnection).format('YYYY-MM-DD HH:mm:ss'))
         this.auth.setUserName(res.userName)

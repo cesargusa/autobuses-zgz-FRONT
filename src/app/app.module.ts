@@ -14,7 +14,6 @@ import { AppTranslateModule } from './app.translate';
 import { BusLineInfoComponent } from './components/bus-line-info/bus-line-info.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegisterComponent } from './pages/register/register.component';
 import { FooterRegisterComponent } from './components/footer-register/footer-register.component';
 import { ErrorComponent } from './pages/error/error-component.component';
 import { AcceptTermsComponent } from './components/accept-terms/accept-terms.component';
@@ -26,6 +25,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CardBusComponent } from './components/card-bus/card-bus.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { RegisterComponent } from './pages/register/register.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -37,9 +37,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         HeaderComponent,
         ListBusLinesComponent,
         BusLineInfoComponent,
-        RegisterComponent,
         FooterRegisterComponent,
         ErrorComponent,
+        RegisterComponent,
         AcceptTermsComponent,
         LoginComponent,
         SpinnerComponent,
