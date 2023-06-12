@@ -1,30 +1,35 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import LoginModel from '../../model/login'
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
-import * as moment from 'moment';
+import { PasswordService } from 'src/app/services/password.service';
 import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  email:string = ''
-  password:string = ''
-  user:string = ''
-  logged:boolean = false
-  spinnerTrue:boolean= false
-  ngOnInit(): void {}
+  email: string = '';
+  password: string = '';
+  user: string = '';
+  logged: boolean = false;
+  spinnerTrue: boolean = false;
+  showPassword:boolean = false
 
-  constructor(private loginService:LoginService){}
-
-  Login(){
-    this.loginService.Login(this.email,this.password)
+  constructor(private loginService: LoginService, private PasswordService:PasswordService) {
   }
-  
+  async Login() {
+    try {
+      this.spinnerTrue = true;
+      await this.loginService.Login(this.email, this.password);
+      this.spinnerTrue = false;
+    } catch (error) {
+      this.spinnerTrue = false;
+    }
+  }
+
+    ShowPassword(){
+      this.showPassword = this.PasswordService.showPassword
+      this.PasswordService.ShowPassword()
+    }
+
 }

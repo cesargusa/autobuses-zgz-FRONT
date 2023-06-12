@@ -3,6 +3,7 @@ export interface BusLineInfo {
     lastUpdated:string,
     description:string,
     title:string,
-    result:any
+    result:any,
+    lineId:string
 
 }

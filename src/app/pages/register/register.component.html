@@ -9,37 +9,43 @@
                             <img src="assets/images/bus-logo.png" alt="" class="w-100">
                         </a>
                     </div>
-                    
+
 
                     <div class="card-body p-4">
-                        
+
                         <div class="text-center w-75 m-auto">
                             <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Registrate</h4>
                             <!-- <p class="text-muted mb-4">Don't have an account? Create your account, it takes less than a minute </p> -->
                         </div>
 
-                       <div>
-<!-- 
+                        <div>
+                            <!-- 
                             <div class="form-group">
                                 <label for="fullname">Nombre</label>
                                 <input class="form-control" type="text" id="fullname" placeholder="Enter your name" required>
                             </div> -->
                             <div class="form-group">
                                 <label for="user">{{'User' | translate}}</label>
-                                <input class="form-control" type="text" id="user" name="user" required placeholder="{{'UserRegisterPlaceholder' | translate}}" [(ngModel)]="user">
+                                <input class="form-control" type="text" id="user" name="user" required
+                                    placeholder="{{'UserRegisterPlaceholder' | translate}}" [(ngModel)]="user">
                             </div>
                             <div class="form-group">
                                 <label for="emailaddress">{{'Email' | translate}}</label>
-                                <input class="form-control" type="email" id="emailaddress" name="email" required placeholder="{{'EmailRegisterPlaceholder' | translate}}" [(ngModel)]="email">
+                                <input class="form-control" type="email" id="emailaddress" name="email" required
+                                    placeholder="{{'EmailRegisterPlaceholder' | translate}}" [(ngModel)]="email">
                             </div>
 
                             <div class="form-group">
                                 <label for="password">{{'Password' | translate}}</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" name="password" placeholder="{{'PasswordRegisterPlaceholder' | translate}}" [(ngModel)]="password">
+                                    <input type="{{showPassword ? 'text' : 'password'}}" id="password"
+                                        class="form-control" name="password"
+                                        placeholder="{{'PasswordRegisterPlaceholder' | translate}}"
+                                        [(ngModel)]="password">
                                     <div class="input-group-append" data-password="false">
-                                        <div class="input-group-text">
-                                            <span class="password-eye"></span>
+                                        <div class="input-group-text" (click)="ShowPassword()">
+                                            <span
+                                                class="{{showPassword ? 'mdi mdi-eye-off-outline' : 'mdi mdi mdi-eye-outline'}}"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -47,30 +53,37 @@
                             <div class="form-group">
                                 <label for="password">{{'RepeatPassword' | translate}}</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" placeholder="{{'PasswordRegisterPlaceholder' | translate}}" name="repeatPassword" [(ngModel)]="repeatPassword" (keyup)="ChangePassword()">
+                                    <input type="{{showPasswordRepeat ? 'text' : 'password'}}" id="password"
+                                        class="form-control" placeholder="{{'PasswordRegisterPlaceholder' | translate}}"
+                                        name="repeatPassword" [(ngModel)]="repeatPassword" (keyup)="ChangePassword()">
                                     <div class="input-group-append" data-password="false">
-                                        <div class="input-group-text">
+                                        <div class="input-group-text" (click)="ShowPasswordRepeat()">
                                             <span class="password-eye"></span>
                                         </div>
                                     </div>
                                 </div>
-                                <span *ngIf="errorPassword" class="text-danger">{{'PasswordTextError' | translate}}</span>
+                                <span *ngIf="errorPassword" class="text-danger">{{'PasswordTextError' |
+                                    translate}}</span>
                             </div>
 
-                                <!-- <app-accept-terms/> -->
-
-                            <div class="form-group mb-0 text-center" *ngIf="user != '' && email != '' && password != '' && spinnerCreate">
-                                <button class="btn btn-primary" (click)="CreateUser()"> {{'Register' | translate}} </button>
-                            </div>
-                            <div class="form-group mb-0 text-center" *ngIf="user === '' || email ==='' || password ==='' ">
-                                <button class="btn btn-primary" (click)="CreateUser()" disabled> {{'Register' | translate}} </button>
-                            </div>
-
+                            <!-- <app-accept-terms/> -->
                             <div *ngIf="spinnerCreate == false">
-                               <app-spinner></app-spinner>
-                          
+                                <app-spinner></app-spinner>
+
                             </div>
-                         
+                            <div class="form-group mb-0 text-center"
+                                *ngIf="user != '' && email != '' && password != '' && spinnerCreate">
+                                <button class="btn btn-primary" (click)="CreateUser()"> {{'Register' | translate}}
+                                </button>
+                            </div>
+                            <div class="form-group mb-0 text-center"
+                                *ngIf="user === '' || email ==='' || password ==='' ">
+                                <button class="btn btn-primary" (click)="CreateUser()" disabled> {{'Register' |
+                                    translate}} </button>
+                            </div>
+
+
+
                         </div>
                     </div> <!-- end card-body -->
                 </div>
@@ -78,7 +91,8 @@
 
                 <div class="row mt-3">
                     <div class="col-12 text-center">
-                        <p class="text-muted">{{'AlreadyAccount' | translate}} <a [routerLink]="['/Login']"  class="text-muted ml-1"><b>{{'LogIn' | translate}}</b></a></p>
+                        <p class="text-muted">{{'AlreadyAccount' | translate}} <a [routerLink]="['/Login']"
+                                class="text-muted ml-1"><b>{{'LogIn' | translate}}</b></a></p>
                     </div> <!-- end col-->
                 </div>
                 <!-- end row -->
@@ -91,4 +105,4 @@
 </div>
 <!-- end page -->
 
-<app-footer-register/>
+<app-footer-register />

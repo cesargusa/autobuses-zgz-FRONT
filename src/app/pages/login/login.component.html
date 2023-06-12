@@ -26,13 +26,12 @@
                             </div>
 
                             <div class="form-group">
-                                <!-- <a href="pages-recoverpw.html" class="text-muted float-right"><small>Forgot your password?</small></a> -->
                                 <label for="password">{{'Password' | translate}}</label>
                                 <div class="input-group input-group-merge">
-                                    <input type="password" id="password" class="form-control" placeholder="{{'PasswordRegisterPlaceholder' | translate}}" name="password" [(ngModel)]="password">
+                                    <input type="{{showPassword ? 'text' : 'password'}}" id="password" class="form-control" placeholder="{{'PasswordRegisterPlaceholder' | translate}}" name="password" [(ngModel)]="password" >
                                     <div class="input-group-append" data-password="false">
-                                        <div class="input-group-text">
-                                            <span class="password-eye"></span>
+                                        <div class="input-group-text" (click)="ShowPassword()">
+                                            <span class="{{showPassword ? 'mdi mdi-eye-off-outline' : 'mdi mdi mdi-eye-outline'}}" id="password-eye" ></span>
                                         </div>
                                     </div>
                                 </div>
@@ -41,15 +40,13 @@
                             <div class="form-group mb-3">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="checkbox-signin" checked>
-                                    <!-- <label class="custom-control-label" for="checkbox-signin">Remember me</label> -->
                                 </div>
                             </div>
                             
                             <app-spinner *ngIf="spinnerTrue"></app-spinner>
-                            <div class="form-group mb-0 text-center" *ngIf="spinnerTrue==false">
-                                <button class="btn btn-primary" (click)="Login()"> {{'LogIn' | translate}} </button>
-                            </div>
-
+                            <div class="form-group mb-0 text-center" *ngIf="spinnerTrue === false">
+                                <button class="btn btn-primary" (click)="Login()" [disabled]="email === '' || password === ''">{{ 'LogIn' | translate }}</button>
+                              </div>
                         </form>
                     </div> <!-- end card-body -->
                 </div>
