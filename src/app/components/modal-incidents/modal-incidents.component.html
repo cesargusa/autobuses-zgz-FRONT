@@ -1,0 +1,30 @@
+<h2 mat-dialog-title style="color:white">Incidencias</h2>
+<mat-dialog-content>
+    <mat-form-field class="col-12">
+        <mat-label >Tipo de Incidencia</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+        
+      </mat-form-field>
+      <mat-form-field class="example-full-width col-12">
+        <mat-label >Deja un comentario</mat-label>
+        <textarea matInput placeholder="Escriba su problema" maxlength="500"></textarea>
+      </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="d-flex justify-content-around col-12">
+    <div>
+        <button style="color: white;" mat-button (click)="onClose()">Close</button>
+
+    </div>
+    <div>
+        <p class="text-muted mb-0">
+            <strong><button class="btn btn-success">Guardar cambios</button></strong>
+          </p>
+    </div>
+   
+  </div>
+</mat-dialog-actions>

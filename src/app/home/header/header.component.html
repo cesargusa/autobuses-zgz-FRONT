@@ -1,27 +1,66 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">AUTOBUSES ZARAGOZA</a>
-    <button class="navbar-toggler border-0" type="button" (click)="toggleMenu()">
+    <button
+      class="navbar-toggler border-0"
+      type="button"
+      (click)="toggleMenu()"
+    >
       <span class="navbar-toggler-icon navbar-light"></span>
     </button>
 
-    <div class="collapse navbar-collapse" [ngClass]="{'show': isMenuOpen}" *ngIf="userName != ''">
+    <div
+      class="collapse navbar-collapse"
+      [ngClass]="{ show: isMenuOpen }"
+      *ngIf="userName != ''"
+    >
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-          <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownUserMenuLink" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false" (click)="toggleUserMenu()">
-            {{userName}}
+          <a
+            class="btn btn-secondary dropdown-toggle"
+            role="button"
+            id="dropdownUserMenuLink"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            (click)="toggleUserMenu()"
+          >
+            {{ userName }}
           </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" [ngClass]="{'show': isUserMenuOpen}">
+          <ul
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdown"
+            [ngClass]="{ show: isUserMenuOpen }"
+          >
             <li>
-              <a  style="cursor: pointer;"  [routerLink]="['/Perfil']" class="dropdown-item"><span
-                  class="mdi mdi-account-circle-outline mr-1"></span><span>Perfil</span></a>
+              <a
+                style="cursor: pointer"
+                class="dropdown-item"
+                (click)="openModalPerfil()"
+                ><span class="mdi mdi-account-circle-outline mr-1"></span
+                ><span>Perfil</span></a
+              >
+            </li>
+
+            <li>
+              <a
+                style="cursor: pointer"
+                class="dropdown-item"
+                (click)="openModal()"
+              >
+                <span class="mdi mdi-alert mr-1"></span
+                ><span mat-raised-button>Incidencias</span>
+              </a>
             </li>
             <li>
-              <a style="cursor: pointer;" class="dropdown-item" (click)="CloseSession()"><span
-                  class="mdi mdi-location-exit mr-1"></span><span>{{"CloseSession" | translate}}</span></a>
+              <a
+                style="cursor: pointer"
+                class="dropdown-item"
+                (click)="CloseSession()"
+                ><span class="mdi mdi-location-exit mr-1"></span
+                ><span>{{ "CloseSession" | translate }}</span></a
+              >
             </li>
-        
           </ul>
         </li>
       </ul>
@@ -31,9 +70,8 @@
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
           <a role="button" [routerLink]="['/Login']">
-           {{'LogIn' | translate }}
+            {{ "LogIn" | translate }}
           </a>
-
         </li>
       </ul>
     </div>
