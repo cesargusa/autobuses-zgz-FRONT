@@ -1,6 +1,10 @@
 import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { SessionService } from 'src/app/services/session.service';
+import {MatDialog} from '@angular/material/dialog';
+
+import { ModalIncidentsComponent } from 'src/app/components/modal-incidents/modal-incidents.component';
+import { PerfilComponent } from 'src/app/pages/perfil/perfil.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -15,13 +19,41 @@ export class HeaderComponent implements OnInit {
   openPerfilModal:boolean = false
   closeResult: string = '';
 
-  constructor(private auth: AuthService, private sessionService:SessionService) {
+
+  constructor(private auth: AuthService, private sessionService:SessionService,public dialog: MatDialog) {
     this.userName = this.auth.getUserName();
   }
 
   ngOnInit(): void {
+    // this.openModal()
   }
 
+  openModal() {
+    const dialogRef = this.dialog.open(ModalIncidentsComponent, {
+      panelClass: 'custom-dialog-container',
+      height: '400px',
+      width: '600px',
+      
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Modal closed');
+      // Realiza acciones después de que se cierre el modal si es necesario
+    });
+  }
+  openModalPerfil() {
+    const dialogRefP = this.dialog.open(PerfilComponent, {
+      panelClass: 'custom-dialog-container',
+      height: '600px',
+      width: '600px',
+      
+    });
+
+    dialogRefP.afterClosed().subscribe(result => {
+      console.log('Modal closed');
+      // Realiza acciones después de que se cierre el modal si es necesario
+    });
+  }
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }

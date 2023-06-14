@@ -24,8 +24,22 @@ A:visited { text-decoration: none  !important; color:white !important}
   .bg-custom-logo{
     background-color: #404954 !important;
   }
+  /* Angular material */
+  .mat-mdc-dialog-container .mdc-dialog__surface{
+    background-color: #343A40 !important;
+  }
+  /* Input */
+  .mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background-color: #343A40 ;
+  }
+  .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+    color:white
+  }
+  .mat-mdc-select-arrow svg {
+    color:white
+  }
 
-
+  /* .mat-mdc-dialog-container .mdc-dialog__surface {overflow-y: hidden;} */
   /* CARD */
  
   /* .card {
@@ -251,3 +265,6 @@ html {
 .bg-image-card{
   background-image: url(../src/assets/images/bus-card.jpg);
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

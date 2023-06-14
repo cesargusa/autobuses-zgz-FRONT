@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { PerfilService } from './perfil.service';
+import {MatDialogRef} from '@angular/material/dialog';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -17,7 +18,8 @@ export class PerfilComponent {
 
   constructor(
     private authService: AuthService,
-    private perfilService: PerfilService
+    private perfilService: PerfilService,
+    public dialogRef: MatDialogRef<PerfilComponent>
   ) {
     this.userId = authService.getUserId();
   }
@@ -25,7 +27,9 @@ export class PerfilComponent {
   ngOnInit(): void {
     this.GetPerfil();
   }
-
+  onClose(): void {
+    this.dialogRef.close();
+  }
   GetPerfil() {
     this.perfilService.GetPerfilService().subscribe((res) => {
       this.email = res.email;

@@ -26,6 +26,15 @@ import { CardBusComponent } from './components/card-bus/card-bus.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { RegisterComponent } from './pages/register/register.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {NgIf} from '@angular/common';
+
+import {NgFor} from '@angular/common';
+import {MatSelectModule} from '@angular/material/select';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ModalIncidentsComponent } from './components/modal-incidents/modal-incidents.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -45,6 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         SpinnerComponent,
         CardBusComponent,
         PerfilComponent,
+        ModalIncidentsComponent,
     ],
     providers: [
         Router,
@@ -68,6 +78,13 @@ export function HttpLoaderFactory(http: HttpClient) {
         }),
         ToastrModule.forRoot(),
         AppTranslateModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
+        MatButtonModule,
+        NgIf,
+        MatDialogModule,
+        MatFormFieldModule, MatSelectModule, NgFor, MatInputModule, FormsModule
     ]
 })
 export class AppModule {}
