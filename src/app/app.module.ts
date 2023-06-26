@@ -28,7 +28,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { RegisterComponent } from './pages/register/register.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {NgIf} from '@angular/common';
-
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {NgFor} from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
 import {MatButtonModule} from '@angular/material/button';
@@ -69,6 +69,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         AppRoutingModule,
         FormsModule,
         NgbModule,
+        MatButtonModule, 
+        MatTooltipModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,

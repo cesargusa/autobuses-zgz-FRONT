@@ -24,9 +24,14 @@ A:visited { text-decoration: none  !important; color:white !important}
   .bg-custom-logo{
     background-color: #404954 !important;
   }
+  
   /* Angular material */
   .mat-mdc-dialog-container .mdc-dialog__surface{
     background-color: #343A40 !important;
+  }
+  .mat-typography p{
+    margin: 0;
+    margin-right: 5px;
   }
   /* Input */
   .mdc-text-field--filled:not(.mdc-text-field--disabled){
@@ -38,7 +43,27 @@ A:visited { text-decoration: none  !important; color:white !important}
   .mat-mdc-select-arrow svg {
     color:white
   }
+  .mat-mdc-select-value-text{
+    color:white;
+  }
+  textarea ::placeholder{
+    color:white;
+  }
 
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+  
+  .left-item {
+    justify-self: start;
+  }
+  
+  .right-item {
+    justify-self: end;
+  }
+p{margin:0 0 0 0}  
   /* .mat-mdc-dialog-container .mdc-dialog__surface {overflow-y: hidden;} */
   /* CARD */
  

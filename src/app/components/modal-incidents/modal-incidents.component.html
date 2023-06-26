@@ -1,30 +1,67 @@
-<h2 mat-dialog-title style="color:white">Incidencias</h2>
+<div class="d-flex align-items-center justify-content-between">
+  <h2 mat-dialog-title style="color: white">Incidencias</h2>
+  <button
+    mat-raised-button
+    matTooltip="Info about the action"
+    aria-label="Button that displays a tooltip when focused or hovered over"
+  >
+    Action
+  </button>
+  <span
+    class="mdi mdi-close mx-3 my-3"
+    style="font-size: 25px; cursor: pointer"
+    (click)="onClose()"
+  ></span>
+</div>
 <mat-dialog-content>
-    <mat-form-field class="col-12">
-        <mat-label >Tipo de Incidencia</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let food of foods" [value]="food.value">
-            {{food.viewValue}}
-          </mat-option>
-        </mat-select>
-        
-      </mat-form-field>
-      <mat-form-field class="example-full-width col-12">
-        <mat-label >Deja un comentario</mat-label>
-        <textarea matInput placeholder="Escriba su problema" maxlength="500"></textarea>
-      </mat-form-field>
+  <mat-form-field class="col-12">
+    <mat-label>Tipo de Incidencia</mat-label>
+    <mat-select [(ngModel)]="idTypeIncident">
+      <mat-option
+        *ngFor="let typeIncident of typeIncidents"
+        [value]="typeIncident.IdTypeIncident"
+   
+      >
+        <div class="grid-container align-items-center justify-content-center">
+          <div class="left-item text-center">
+            <p>{{ typeIncident.NameTypeIncident }}</p>
+          </div>
+          <div class="right-item">
+            <span
+              class="mdi mdi-information-outline"
+              mat-raised-button
+              matTooltip="{{ typeIncident.Description }}"
+              aria-label="Button that displays a tooltip when focused or hovered over"
+            ></span>
+          </div>
+        </div>
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width col-12">
+    <mat-label>Deja un comentario</mat-label>
+    <textarea
+      matInput
+      placeholder="Escriba su problema"
+      maxlength="500"
+      [(ngModel)]="inputCommentIncident"
+    ></textarea>
+  </mat-form-field>
 </mat-dialog-content>
 <mat-dialog-actions>
   <div class="d-flex justify-content-around col-12">
-    <div>
+    <!-- <div>
         <button style="color: white;" mat-button (click)="onClose()">Close</button>
 
-    </div>
+    </div> -->
     <div>
-        <p class="text-muted mb-0">
-            <strong><button class="btn btn-success">Guardar cambios</button></strong>
-          </p>
+      <p class="text-muted mb-0">
+        <strong
+          ><button class="btn btn-success" (click)="createIncident()">
+            Guardar cambios
+          </button></strong
+        >
+      </p>
     </div>
-   
   </div>
 </mat-dialog-actions>
