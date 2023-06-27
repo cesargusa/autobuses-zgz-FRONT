@@ -1,12 +1,5 @@
 <div class="d-flex align-items-center justify-content-between">
   <h2 mat-dialog-title style="color: white">Incidencias</h2>
-  <button
-    mat-raised-button
-    matTooltip="Info about the action"
-    aria-label="Button that displays a tooltip when focused or hovered over"
-  >
-    Action
-  </button>
   <span
     class="mdi mdi-close mx-3 my-3"
     style="font-size: 25px; cursor: pointer"
@@ -16,11 +9,14 @@
 <mat-dialog-content>
   <mat-form-field class="col-12">
     <mat-label>Tipo de Incidencia</mat-label>
+    <app-spinner *ngIf="isLoadingTypeIncidents">
+
+    </app-spinner>
     <mat-select [(ngModel)]="idTypeIncident">
       <mat-option
         *ngFor="let typeIncident of typeIncidents"
         [value]="typeIncident.IdTypeIncident"
-   
+        
       >
         <div class="grid-container align-items-center justify-content-center">
           <div class="left-item text-center">
@@ -54,7 +50,16 @@
         <button style="color: white;" mat-button (click)="onClose()">Close</button>
 
     </div> -->
-    <div>
+    <div *ngIf="isLoadingCreateIncident">
+      <p class="text-muted mb-0">
+        <strong
+          ><button class="btn btn-success">
+            <app-spinner></app-spinner>
+          </button></strong
+        >
+      </p>
+    </div>
+    <div *ngIf="isLoadingCreateIncident == false">
       <p class="text-muted mb-0">
         <strong
           ><button class="btn btn-success" (click)="createIncident()">

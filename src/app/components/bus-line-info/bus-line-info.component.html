@@ -1,34 +1,34 @@
 <app-header></app-header>
-<div *ngIf="spinnerTrue;then load else notLoad"></div>
+<div *ngIf="spinnerTrue; then load; else notLoad"></div>
 
 <ng-template #load>
-    <ng-container>
-        <app-spinner></app-spinner>
-    </ng-container>
+  <ng-container>
+    <app-spinner></app-spinner>
+  </ng-container>
 </ng-template>
 <ng-template #notLoad>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb mx-3">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Linea {{lineId}}</li>
-        </ol>
-    </nav>
-    <div class="mx-3">
-        <div>
-            <h1>{{title}}</h1>
-            <p><span class="fw-bold">Ultima Actualización:</span> {{lastUpdated}}</p>
-        </div>
-
-        <div>
-
-
-
-        </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb mx-3">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">
+        Linea {{ lineId }}
+      </li>
+    </ol>
+  </nav>
+  <div class="mx-3">
+    <div>
+      <h1>{{ title }}</h1>
+      <p>
+        <span class="fw-bold">Ultima Actualización:</span> {{ lastUpdated }}
+      </p>
     </div>
 
-    <div *ngFor="let item of busLines">
-        <div>
-                <!-- <h2>{{item[1].about}}</h2> -->
-        </div>
+    <div></div>
+  </div>
+
+  <div *ngFor="let item of busLines">
+    <div>
+      <!-- <h2>{{item[1].about}}</h2> -->
     </div>
+  </div>
 </ng-template>

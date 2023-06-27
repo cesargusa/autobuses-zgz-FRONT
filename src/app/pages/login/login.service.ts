@@ -28,7 +28,8 @@ export class LoginService {
 
       this.http.post<LoginModel>(URL, body).subscribe(
         (res) => {
-          if (res.succes == true) {
+          console.log(res)
+          if (res.succes == true && res.isActive === 1) {
             const URL2 = `${environment.urlBack}/api/users/UpdateUser/${res.idUser}`;
             const bodyPutLastConnection = {
               LastConnection: moment().format('YYYY-MM-DD HH:mm:ss'),
@@ -47,7 +48,18 @@ export class LoginService {
 
             this.router.navigate(['/']);
             resolve(res); // Resuelve la promesa con el resultado del inicio de sesión
-          } else {
+          } 
+          else if(res.isActive == 0){
+            this.toastr.error(
+              `Usuario Eliminado`,
+              'Contacte con el soporte para recuperarlo',
+              {
+                positionClass: 'toast-bottom-left',
+                timeOut: 2000,
+              }
+            );
+            reject(new Error('Usuario Eliminado')); // Rechaza la promesa con un error
+          }else {
             this.toastr.error(
               `Email o Contraseña Incorrectas`,
               'Fallo al iniciar sesión',

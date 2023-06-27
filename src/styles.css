@@ -1,11 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 .nav-tabs.nav-bordered li a.active {
-    border-bottom: 2px solid #FA5C7C !important;
+  border-bottom: 2px solid #fa5c7c !important;
 }
 
-A:link { text-decoration: none !important; color:white !important}
-A:hover {  text-decoration: none  !important; color:white !important}
-A:visited { text-decoration: none  !important; color:white !important}
+A:link {
+  text-decoration: none !important;
+  color: white !important;
+}
+A:hover {
+  text-decoration: none !important;
+  color: white !important;
+}
+A:visited {
+  text-decoration: none !important;
+  color: white !important;
+}
 
 /* Establecer el tema claro */
 /* body {
@@ -13,61 +22,66 @@ A:visited { text-decoration: none  !important; color:white !important}
     color: #343a40;
   }
    */
-   .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-  }
-  .navbar-toggler:focus {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-  
-  .bg-custom-logo{
-    background-color: #404954 !important;
-  }
-  
-  /* Angular material */
-  .mat-mdc-dialog-container .mdc-dialog__surface{
-    background-color: #343A40 !important;
-  }
-  .mat-typography p{
-    margin: 0;
-    margin-right: 5px;
-  }
-  /* Input */
-  .mdc-text-field--filled:not(.mdc-text-field--disabled){
-    background-color: #343A40 ;
-  }
-  .mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
-    color:white
-  }
-  .mat-mdc-select-arrow svg {
-    color:white
-  }
-  .mat-mdc-select-value-text{
-    color:white;
-  }
-  textarea ::placeholder{
-    color:white;
-  }
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+.navbar-toggler:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
 
-  .grid-container {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-  }
-  
-  .left-item {
-    justify-self: start;
-  }
-  
-  .right-item {
-    justify-self: end;
-  }
-p{margin:0 0 0 0}  
-  /* .mat-mdc-dialog-container .mdc-dialog__surface {overflow-y: hidden;} */
-  /* CARD */
- 
-  /* .card {
+.bg-custom-logo {
+  background-color: #404954 !important;
+}
+
+/* Angular material */
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: #343a40 !important;
+}
+.mat-typography p {
+  margin: 0;
+  margin-right: 5px;
+}
+/* Input */
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #343a40;
+}
+.mat-mdc-form-field .mat-mdc-floating-label.mdc-floating-label {
+  color: white;
+}
+.mat-mdc-select-arrow svg {
+  color: white;
+}
+.mat-mdc-select-value-text {
+  color: white;
+}
+textarea ::placeholder {
+  color: white;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.left-item {
+  justify-self: start;
+}
+
+.right-item {
+  justify-self: end;
+}
+p {
+  margin: 0 0 0 0;
+}
+.mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+  color: white;
+}
+/* .mat-mdc-dialog-container .mdc-dialog__surface {overflow-y: hidden;} */
+/* CARD */
+
+/* .card {
     margin: 20px 20px;
     width: 300px;
     height: 300px;
@@ -119,9 +133,8 @@ p{margin:0 0 0 0}
       flex-direction: column;
     }
   } */
-  
-  
-  /*
+
+/*
   .card {
     margin: 30px auto;
     width: 300px;
@@ -137,15 +150,7 @@ p{margin:0 0 0 0}
   }
   */
 
-  
-
-
-
-
-
-  
- /* Design inspiration:  https://dribbble.com/shots/1978243-Latest-News */
-
+/* Design inspiration:  https://dribbble.com/shots/1978243-Latest-News */
 
 .card-bus {
   display: block;
@@ -249,7 +254,6 @@ html {
   transform: translate(-50%, -50%);
 }
 
-
 .app-card-list {
   display: inline-block;
   width: 100%;
@@ -272,24 +276,27 @@ html {
 }
 
 @media screen and (max-width: 778px) {
-.card-bus{
-  width:100%
-}
-
-}
-
-@media (min-width: 576px) and (max-width: 778px) {
-
-  .card-bus{
-    width:100%
+  .card-bus {
+    width: 100%;
   }
 }
 
+@media (min-width: 576px) and (max-width: 778px) {
+  .card-bus {
+    width: 100%;
+  }
+}
 
 /* CARD BACKGROUND IMAGE */
-.bg-image-card{
+.bg-image-card {
   background-image: url(../src/assets/images/bus-card.jpg);
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
