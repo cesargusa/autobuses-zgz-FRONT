@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import SimpleBar from 'simplebar';
 import { BusLineService } from '../services/bus-line.service';
@@ -9,8 +9,13 @@ import { AuthService } from '../services/auth.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
+  
+  @Input() busLineId:string = '' 
+  @Input() logged:boolean = false
+  @Input() busLineFavorite:boolean = false
+  @Input() busLine:string = ''
   welcome: string = '';
-  logged: boolean = false;
+  // logged: boolean = false;
   busLineListArray: any[] = [];
   constructor(
     private titleService: Title,

@@ -35,6 +35,7 @@ export class ModalIncidentsComponent {
       console.log(this.typeIncidents);
       this.isLoadingTypeIncidents = false;
     });
+
   }
 
   onClose(): void {

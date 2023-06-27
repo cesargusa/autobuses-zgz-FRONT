@@ -59,14 +59,24 @@
         >
       </p>
     </div>
-    <div *ngIf="isLoadingCreateIncident == false">
+    <div *ngIf="isLoadingCreateIncident == false && isLoadingTypeIncidents == false ">
       <p class="text-muted mb-0">
         <strong
-          ><button class="btn btn-success" (click)="createIncident()">
+          ><button class="btn btn-success" (click)="createIncident()" [disabled]="isLoadingTypeIncidents">
             Guardar cambios
           </button></strong
         >
       </p>
     </div>
+    <!-- <div *ngIf="isLoadingTypeIncidents == false && isLoadingCreateIncident == true">
+      <p class="text-muted mb-0">
+        <strong
+          ><button class="btn btn-success">
+            
+          </button></strong
+        >
+      </p>
+    </div> -->
   </div>
+  
 </mat-dialog-actions>

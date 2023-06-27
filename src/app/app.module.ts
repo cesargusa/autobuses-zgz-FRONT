@@ -35,6 +35,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ModalIncidentsComponent } from './components/modal-incidents/modal-incidents.component';
+import { FavoritesLinesComponent } from './components/favorites-lines/favorites-lines.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -55,6 +56,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         CardBusComponent,
         PerfilComponent,
         ModalIncidentsComponent,
+        FavoritesLinesComponent,
     ],
     providers: [
         Router,
