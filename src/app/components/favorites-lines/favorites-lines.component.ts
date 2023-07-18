@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from 'src/app/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-favorites-lines',
   templateUrl: './favorites-lines.component.html',
@@ -8,22 +10,30 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class FavoritesLinesComponent implements OnInit {
   favoritesLines:any [] = []
-constructor(private http:HttpClient,private auth:AuthService){}
+constructor(private http:HttpClient,private auth:AuthService, private toastr:ToastrService){}
   ngOnInit(){
  
     this.getFavoritesLines()
   }
 
   getFavoritesLines(){
-    this.http.get<any>(`http://localhost:3000/api/LinesFavorites/${this.auth.getUserId()}`).subscribe((res) =>{
+    this.http.get<any>(`${environment.urlBack}/api/LinesFavorites/${this.auth.getUserId()}`).subscribe((res) =>{
       console.log(res)
       this.favoritesLines = [...res]
   })
   }
 
-  deleteLine(idLine:any){
+  deleteLine(idLine:any,favoriteLine:any){
     console.log(idLine)
-    this.http.delete(`http://localhost:3000/api/LinesFavorites/Delete/${idLine}`).subscribe((res) =>{
+    this.http.delete(`${environment.urlBack}/api/LinesFavorites/Delete/${idLine}`).subscribe((res) =>{
+      this.toastr.error(
+        `Linea Eliminada Favoritos`,
+        `Se ha eliminado correctamente la linea ${favoriteLine}`,
+        {
+          positionClass: 'toast-bottom-left',
+          timeOut: 2000,
+        }
+      );
     console.log(res)
     this.getFavoritesLines()
     })

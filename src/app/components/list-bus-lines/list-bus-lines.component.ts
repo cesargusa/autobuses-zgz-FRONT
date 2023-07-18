@@ -38,15 +38,10 @@ export class ListBusLinesComponent implements OnInit {
 
   ngOnInit(): void {
 
-
-
-
-
-
     if (this.auth.getLogged() == true) {
       this.userId = this.auth.getUserId();
       this.http
-        .get<any>(`http://localhost:3000/api/LinesFavorites/${this.userId}`)
+        .get<any>(`${environment.urlBack}/api/LinesFavorites/${this.userId}`)
         .subscribe((res) => {
           res.forEach((line: any) => {
             this.favoritesLines.push(line.NumberLine);

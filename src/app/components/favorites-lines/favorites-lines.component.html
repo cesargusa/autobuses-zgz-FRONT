@@ -13,10 +13,10 @@
                   </div>
                 <!-- </a> -->
                 <div class="d-flex justify-content-end mx-3 mb-3" style="background-color: #404954;" >
-                 <span  class="mdi mdi-heart-outline mdi-heart-transform-color"
-                    id='favouriteIcon{{favoriteLine.NumberLine}}' (click)="deleteLine(favoriteLine.IdFavoriteLine)"></span>
-                    <!-- <span  class="mdi mdi-heart mdi-heart-transform-color"
-                    id='favouriteIcon{{favoriteLine.NumberLine}}' ></span> -->
+                 <!-- <span  class="mdi mdi-heart-outline mdi-heart-transform-color"
+                    id='favouriteIcon{{favoriteLine.NumberLine}}' (click)="deleteLine(favoriteLine.IdFavoriteLine,favoriteLine.NumberLine)"></span> -->
+                    <span  class="mdi mdi-heart mdi-heart-transform-color"
+                    id='favouriteIcon{{favoriteLine.NumberLine}}' (click)="deleteLine(favoriteLine.IdFavoriteLine,favoriteLine.NumberLine)" ></span>
                 </div>
               </article>
                </div>

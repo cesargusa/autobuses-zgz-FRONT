@@ -1,0 +1,12 @@
+.card-background-part{
+    background-color: #404954
+}
+.card-text-color{
+    color:aliceblue
+}
+
+.mdi-heart-transform-color{
+    transform: scale(3.5); 
+    cursor: pointer;
+    color: #FA5C7C;
+}
