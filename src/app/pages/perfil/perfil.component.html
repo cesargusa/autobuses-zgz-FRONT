@@ -1,98 +1,48 @@
-<!-- <app-header></app-header>
-<div class="card">
-    <div class="card-body">
-        <h4 class="header-title mt-0 mb-3">Detalle de usuario</h4>
-
-        <hr>
-
-
-        <div class="text-left row">
-            <p class="text-muted fw-bold">Nombre de Usuario: <span class="ml-2">{{username}}</span></p>
-
-            <p class="text-muted fw-bold">Correo Electrónico :<span class="ml-2">{{email}}</span></p>
-
-            <div class="row">
-                <div class="col-auto d-flex align-items-center">
-                  <p class="text-muted fw-bold mb-0 mr-2">Contraseña:</p>
-                </div>
-                <div class="col">
-                  <input class="form-control  w-15" [value]="password" [(ngModel)]="password">
-                </div>
-              </div>
-              
-            <p class="text-muted fw-bold">Fecha de registro : <span class="ml-2">{{createDate}}</span></p>
-
-            <p class="text-muted fw-bold">Ultima Conexión :
-                <span class="ml-2"> {{lastConnection}} </span>
-            </p>
-            <div class="d-flex justify-content-start ">
-                <p class="text-muted mb-0"><strong><button class="btn btn-danger mx-3" (click)="DeleteUser()">Eliminar
-                            Usuario</button></strong>
-                </p>
-                <p class="text-muted mb-0"><strong><button class="btn btn-success" (click)="SaveChanges()">Guardar
-                            cambios</button></strong></p>
-               
-            </div>
-
-
-
-        </div>
-    </div>
-</div> -->
-<div >
+<div>
   <div class="d-flex align-items-center justify-content-between">
     <h2 mat-dialog-title style="color:white;">Detalle del Perfil</h2>
     <span class="mdi mdi-close mx-3 my-3" style="font-size: 25px; cursor: pointer;" (click)="onClose()"></span>
   </div>
-
-  <mat-dialog-content >
+  <mat-dialog-content>
     <div style="flex: 1;overflow-y: auto;">
-    <div class="mb-3">
-      <p class="text-muted fw-bold">Nombre de Usuario:</p>
-      <p class="text-muted">{{ username }}</p>
-    </div>
-    
-    <div class="mb-3">
-      <p class="text-muted fw-bold">Correo Electrónico:</p>
-      <p class="text-muted">{{ email }}</p>
-    </div>
-    
-    <div class="mb-3">
-      <div class="d-flex align-items-center">
-        <p class="text-muted fw-bold mr-2 mb-0">Contraseña:</p>
+      <div class="mb-3">
+        <p class="text-muted fw-bold">Nombre de Usuario:</p>
+        <p class="text-muted">{{ username }}</p>
       </div>
-      <div class="d-flex align-items-center">
-        <input class="form-control" [value]="password" [(ngModel)]="password">
+      <div class="mb-3">
+        <p class="text-muted fw-bold">Correo Electrónico:</p>
+        <p class="text-muted">{{ email }}</p>
       </div>
-    </div>
-    
-    <div class="mb-3">
-      <p class="text-muted fw-bold">Fecha de registro:</p>
-      <p class="text-muted">{{ createDate }}</p>
-    </div>
-    
-    <div class="mb-3">
-      <p class="text-muted fw-bold">Última Conexión:</p>
-      <p class="text-muted">{{ lastConnection }}</p>
-    </div>
+      <div class="mb-3">
+        <div class="d-flex align-items-center">
+          <p class="text-muted fw-bold mr-2 mb-0">Contraseña:</p>
+        </div>
+        <div class="d-flex align-items-center">
+          <input class="form-control" [value]="password" [(ngModel)]="password">
+        </div>
+      </div>
+      <div class="mb-3">
+        <p class="text-muted fw-bold">Fecha de registro:</p>
+        <p class="text-muted">{{ createDate }}</p>
+      </div>
+      <div class="mb-3">
+        <p class="text-muted fw-bold">Última Conexión:</p>
+        <p class="text-muted">{{ lastConnection }}</p>
+      </div>
     </div>
   </mat-dialog-content>
-  
   <mat-dialog-actions>
     <div class="d-flex justify-content-around col-12">
-    
       <div>
         <p class="text-muted mb-0">
-            <strong><button class="btn btn-danger" (click)="DeleteUser()">Eliminar Usuario</button></strong>
-          </p>
-    </div>
-      <div>
-          <p class="text-muted mb-0">
-              <strong><button class="btn btn-success" (click)="SaveChanges()">Guardar cambios</button></strong>
-            </p>
+          <strong><button class="btn btn-danger" (click)="DeleteUser()">Eliminar Usuario</button></strong>
+        </p>
       </div>
-     
+      <div>
+        <p class="text-muted mb-0">
+          <strong><button class="btn btn-success" (click)="SaveChanges()">Guardar cambios</button></strong>
+        </p>
+      </div>
     </div>
   </mat-dialog-actions>
-  
 </div>

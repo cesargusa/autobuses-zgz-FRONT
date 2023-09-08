@@ -3,27 +3,16 @@
         <div class="row justify-content-center">
             <div class="col-lg-5">
                 <div class="card">
-                    <!-- Logo-->
                     <div class="card-header text-center bg-custom-logo">
                         <a [routerLink]="['/']">
                             <img src="assets/images/bus-logo.png" alt="" class="w-100">
                         </a>
                     </div>
-
-
                     <div class="card-body p-4">
-
                         <div class="text-center w-75 m-auto">
                             <h4 class="text-dark-50 text-center mt-0 font-weight-bold">Registrate</h4>
-                            <!-- <p class="text-muted mb-4">Don't have an account? Create your account, it takes less than a minute </p> -->
                         </div>
-
                         <div>
-                            <!-- 
-                            <div class="form-group">
-                                <label for="fullname">Nombre</label>
-                                <input class="form-control" type="text" id="fullname" placeholder="Enter your name" required>
-                            </div> -->
                             <div class="form-group">
                                 <label for="user">{{'User' | translate}}</label>
                                 <input class="form-control" type="text" id="user" name="user" required
@@ -34,7 +23,6 @@
                                 <input class="form-control" type="email" id="emailaddress" name="email" required
                                     placeholder="{{'EmailRegisterPlaceholder' | translate}}" [(ngModel)]="email">
                             </div>
-
                             <div class="form-group">
                                 <label for="password">{{'Password' | translate}}</label>
                                 <div class="input-group input-group-merge">
@@ -65,8 +53,6 @@
                                 <span *ngIf="errorPassword" class="text-danger">{{'PasswordTextError' |
                                     translate}}</span>
                             </div>
-
-                            <!-- <app-accept-terms/> -->
                             <div *ngIf="spinnerCreate == false">
                                 <app-spinner></app-spinner>
 
@@ -81,28 +67,18 @@
                                 <button class="btn btn-primary" (click)="CreateUser()" disabled> {{'Register' |
                                     translate}} </button>
                             </div>
-
-
-
                         </div>
-                    </div> <!-- end card-body -->
+                    </div>
                 </div>
-                <!-- end card -->
 
                 <div class="row mt-3">
                     <div class="col-12 text-center">
                         <p class="text-muted">{{'AlreadyAccount' | translate}} <a [routerLink]="['/Login']"
                                 class="text-muted ml-1"><b>{{'LogIn' | translate}}</b></a></p>
-                    </div> <!-- end col-->
+                    </div>
                 </div>
-                <!-- end row -->
-
-            </div> <!-- end col -->
+            </div>
         </div>
-        <!-- end row -->
     </div>
-    <!-- end container -->
 </div>
-<!-- end page -->
-
 <app-footer-register />

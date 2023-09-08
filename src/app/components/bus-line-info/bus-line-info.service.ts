@@ -12,16 +12,16 @@ export class BusLineInfoService {
 constructor(private http:HttpClient, private router:Router,private route: ActivatedRoute){}
 GetLineInfo(lineId:string){
     const URL = `https://www.zaragoza.es/sede/servicio/urbanismo-infraestructuras/transporte-urbano/linea-autobus/${lineId}`
-    console.log(URL)
+
     return this.http.get<BusLineInfo>(URL).pipe(
         map((res: BusLineInfo) => {
+          console.log(res)
           return {
             lastUpdated: res.lastUpdated,
             totalCount: res.totalCount,
             description: res.description,
             title:res.title,
-            result:res.result
-            
+            result:res.result,
           };
         })
       );

@@ -1,6 +1,5 @@
 <app-header></app-header>
 <div *ngIf="spinnerTrue; then load; else notLoad"></div>
-
 <ng-template #load>
   <ng-container>
     <app-spinner></app-spinner>
@@ -22,13 +21,22 @@
         <span class="fw-bold">Ultima Actualización:</span> {{ lastUpdated }}
       </p>
     </div>
+    <div class="row my-3">
+      <div class="col-12 col-xl-3" >
+      <app-lines-display [descriptions]="descriptions" [spinnerLines]="spinnerLines" [busLines]="busLines"></app-lines-display>
+      <p>{{busLines.length}}</p>
+      </div>
+      <div class="col-9">
 
-    <div></div>
-  </div>
+      </div>
+    </div>
 
-  <div *ngFor="let item of busLines">
     <div>
-      <!-- <h2>{{item[1].about}}</h2> -->
+      <div  *ngFor="let busLine of busLines">
+        <span>{{busLine.description}}</span> 
+        <span *ngIf="busLine.geometry.type == 'Point'">{{busLine.geometry.coordinates}}</span> 
+        
+      </div>
     </div>
   </div>
 </ng-template>

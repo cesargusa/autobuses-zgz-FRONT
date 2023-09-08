@@ -36,6 +36,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ModalIncidentsComponent } from './components/modal-incidents/modal-incidents.component';
 import { FavoritesLinesComponent } from './components/favorites-lines/favorites-lines.component';
+import { LinesDisplayComponent } from './components/lines-display/lines-display.component';
+import { LinesDisplayItemComponent } from './components/lines-display-item/lines-display-item.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -57,6 +59,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         PerfilComponent,
         ModalIncidentsComponent,
         FavoritesLinesComponent,
+        LinesDisplayComponent,
+        LinesDisplayItemComponent
     ],
     providers: [
         Router,
