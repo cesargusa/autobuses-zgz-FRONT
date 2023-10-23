@@ -1,0 +1,7 @@
+<div class="row px-3 m-1 col-12">
+    <div class="col-12 col-sm-6 col-md col-lg-4 col-xl-3 justify-content-center" *ngFor="let i of listaFiltrada">
+        <div >
+            <app-card-post [about]="i.about" [description]="i.description" ></app-card-post>
+        </div>
+    </div>
+</div>

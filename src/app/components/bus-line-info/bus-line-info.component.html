@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div *ngIf="spinnerTrue; then load; else notLoad"></div>
+<div *ngIf="spinnerLines; then load; else notLoad"></div>
 <ng-template #load>
   <ng-container>
     <app-spinner></app-spinner>
@@ -14,29 +14,43 @@
       </li>
     </ol>
   </nav>
-  <div class="mx-3">
+  <div class="mx-3"  *ngIf="busLines.length != 0 && busLines.length != 1 && busLines.length != 2; else divNotLines">
     <div>
       <h1>{{ title }}</h1>
-      <p>
+      <p >
         <span class="fw-bold">Ultima Actualización:</span> {{ lastUpdated }}
+        
+
       </p>
     </div>
     <div class="row my-3">
-      <div class="col-12 col-xl-3" >
-      <app-lines-display [descriptions]="descriptions" [spinnerLines]="spinnerLines" [busLines]="busLines"></app-lines-display>
-      <p>{{busLines.length}}</p>
+      <div class="col-12 col-xl-3 col-lg-4" style="height: 100%;" >
+            <app-lines-display [descriptions]="descriptions" [busLines]="busLines"></app-lines-display>
       </div>
-      <div class="col-9">
-
+      <div class="col-12 col-xl-9 col-lg-8">
+        <app-map [coordinates]="coordinates"></app-map>
       </div>
     </div>
 
     <div>
-      <div  *ngFor="let busLine of busLines">
+      <!-- <div  *ngFor="let busLine of busLines">
         <span>{{busLine.description}}</span> 
         <span *ngIf="busLine.geometry.type == 'Point'">{{busLine.geometry.coordinates}}</span> 
-        
-      </div>
+      </div> -->
     </div>
+  </div>
+  <ng-template #divNotLines>
+    <h2 class="text-center fw-bolder">No hay información disponible para la linea {{lineId}}</h2>
+    <p class="text-center">Intentelo mas tarde...</p>
+    <a href="/">
+      <div class="row justify-content-center">
+        <button  class="btn btn-primary text-center w-25 my-2">Volver a Inicio</button>
+
+      </div>
+    </a>
+  </ng-template>
+
+  <div>
+    <app-bus-line-post [busLines]="busLines"></app-bus-line-post>
   </div>
 </ng-template>

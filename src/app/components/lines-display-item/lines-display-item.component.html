@@ -1,7 +1,10 @@
 <div *ngIf="description != undefined"  class="timeline-item">
     <i class="mdi mdi-bus timeline-icon text-primary fs-4"></i>
     <div class="timeline-item-info">
-        <a class="font-weight-bold mb-1 d-block fs-4">{{description}}</a>
+        <a class="font-weight-bold mb-1 d-block fs-4" (click)="setView()">{{description}}</a>
+        <p>{{title.split(' ').slice(1).join(' ')}}</p>
+        <!-- <p>{{about}}</p> -->
+        <!-- <p>{{coordinatesBusLine[1]}} {{coordinatesBusLine[0]}}</p> -->
         <br>
     </div>
 </div>

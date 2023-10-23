@@ -5,6 +5,7 @@ export interface BusLineInfo {
     lastUpdated:string,
     description:string,
     title:string,
+    about:string;
     result:BusLineInfoResult[],
     lineId:string
 

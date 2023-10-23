@@ -11,10 +11,7 @@ A:hover {
   text-decoration: none !important;
   color: white !important;
 }
-A:visited {
-  text-decoration: none !important;
-  color: white !important;
-}
+
 
 /* Establecer el tema claro */
 /* body {
@@ -69,6 +66,13 @@ textarea ::placeholder {
   justify-self: start;
 }
 
+/* MAPA */
+.leaflet-control-zoom-in{
+color: black !important;
+}
+.leaflet-bar a:hover{
+color: #2D3436 !important;
+}
 .right-item {
   justify-self: end;
 }
@@ -78,9 +82,23 @@ p {
 .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
   color: white;
 }
+
+  .dialog-content-custom {
+    width: 60vw; /* 80% del ancho de la pantalla */
+    height: 60vh; /* 70% de la altura de la pantalla */
+    overflow-x: hidden; /* Oculta el desplazamiento horizontal */
+  }
 /* .mat-mdc-dialog-container .mdc-dialog__surface {overflow-y: hidden;} */
 /* CARD */
+body.dark-mode {
+  background-color: #2d3436;
+  color: #dfe6e9;
+}
 
+body.light-mode {
+  background-color: #dfe6e9;
+  color: #2d3436;
+}
 /* .card {
     margin: 20px 20px;
     width: 300px;
@@ -291,7 +309,9 @@ html {
 .bg-image-card {
   background-image: url(../src/assets/images/bus-card.jpg);
 }
-
+.bg-image-card-post {
+  background-image: url(../src/assets/images/post-bus.jpg);
+}
 html,
 body {
   height: 100%;

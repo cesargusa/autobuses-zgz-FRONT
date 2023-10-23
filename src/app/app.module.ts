@@ -38,6 +38,11 @@ import { ModalIncidentsComponent } from './components/modal-incidents/modal-inci
 import { FavoritesLinesComponent } from './components/favorites-lines/favorites-lines.component';
 import { LinesDisplayComponent } from './components/lines-display/lines-display.component';
 import { LinesDisplayItemComponent } from './components/lines-display-item/lines-display-item.component';
+import { MapComponent } from './components/map/map.component';
+import { BusLinePostComponent } from './components/bus-line-post/bus-line-post.component';
+import { BusLinePostCardComponent } from './components/bus-line-post-card/bus-line-post-card.component';
+import { CardPostComponent } from './components/card-post/card-post.component';
+import { ModalInfoPostComponent } from './components/modal-info-post/modal-info-post.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -60,7 +65,12 @@ export function HttpLoaderFactory(http: HttpClient) {
         ModalIncidentsComponent,
         FavoritesLinesComponent,
         LinesDisplayComponent,
-        LinesDisplayItemComponent
+        LinesDisplayItemComponent,
+        MapComponent,
+        BusLinePostComponent,
+        BusLinePostCardComponent,
+        CardPostComponent,
+        ModalInfoPostComponent
     ],
     providers: [
         Router,

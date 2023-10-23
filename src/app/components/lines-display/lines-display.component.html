@@ -1,20 +1,19 @@
-  
-  <div class="col-xl-12 col-lg-12 order-lg-1">
+<div class="col-xl-12 col-lg-12 order-lg-1">
+
     <div class="card">
-        <div class="card-body" >
-            <div data-simplebar="init" style="max-height: 424px;"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: auto; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 0px;">
+        <div class="card-body">
+            <div data-simplebar style="max-height: 425px;">
                 <div class="timeline-alt pb-0">
-                 <app-spinner *ngIf="spinnerLines"  ></app-spinner>
-                    <div *ngIf="busLines?.length != 0">
-                        <app-lines-display-item  *ngFor="let i of descriptions" [description]="i" ></app-lines-display-item>
+                    <div *ngIf="busLines?.length != 0 ; else elseBusLines">
+                        <app-lines-display-item *ngFor="let i of busLines" [description]="i.description"
+                            [title]="i.title" [about]="i.about" [coordinatesBusLine]="i.geometry.coordinates">
+                        </app-lines-display-item>
                     </div>
-                    <div *ngIf="busLines?.length == 0">
-                        <h2 class="text-center">No hay lineas disponibles :/</h2>
-                    </div>
+                    <ng-template #elseBusLines>
+                        <h2>No hay lineas disponibles :/</h2>
+                    </ng-template>
                 </div>
-            </div></div></div></div><div class="simplebar-placeholder" style="width: 333px; height: 643px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 279px; transform: translate3d(0px, 0px, 0px); display: block;"></div></div></div> <!-- end slimscroll -->
+            </div>
         </div>
     </div>
 </div>
-  
- 

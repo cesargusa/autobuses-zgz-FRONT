@@ -13,18 +13,16 @@ export class FavoritesLinesComponent implements OnInit {
 constructor(private http:HttpClient,private auth:AuthService, private toastr:ToastrService){}
   ngOnInit(){
  
-    this.getFavoritesLines()
+    // this.getFavoritesLines()
   }
 
   getFavoritesLines(){
     this.http.get<any>(`${environment.urlBack}/api/LinesFavorites/${this.auth.getUserId()}`).subscribe((res) =>{
-      console.log(res)
       this.favoritesLines = [...res]
   })
   }
 
   deleteLine(idLine:any,favoriteLine:any){
-    console.log(idLine)
     this.http.delete(`${environment.urlBack}/api/LinesFavorites/Delete/${idLine}`).subscribe((res) =>{
       this.toastr.error(
         `Linea Eliminada Favoritos`,
@@ -34,7 +32,6 @@ constructor(private http:HttpClient,private auth:AuthService, private toastr:Toa
           timeOut: 2000,
         }
       );
-    console.log(res)
     this.getFavoritesLines()
     })
 

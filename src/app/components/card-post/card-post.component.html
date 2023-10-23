@@ -1,0 +1,14 @@
+<article class="card-bus rounded-lg card-background-part">
+    <!-- <a [routerLink]="['/BusLineInfo', busLineId] "> -->
+      <header class="card-header bg-image-card-post">
+        <h1 class="card-header--title fw-bold" style="font-size: 26px; border-color: black;">{{description}}</h1>
+      </header>
+      <div class="card-body my-2">
+            <div class="d-flex justify-content-around">
+                <!-- <button class="btn-primary btn">Ver en Maps</button> -->
+                <button class="btn-primary btn" (click)="openDialog()">Ver Información</button>
+            </div>
+      </div>
+
+  </article>
+

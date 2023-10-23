@@ -12,27 +12,30 @@
     <app-spinner *ngIf="isLoadingTypeIncidents">
 
     </app-spinner>
-    <mat-select [(ngModel)]="idTypeIncident">
-      <mat-option
-        *ngFor="let typeIncident of typeIncidents"
-        [value]="typeIncident.IdTypeIncident"
-        
-      >
-        <div class="grid-container align-items-center justify-content-center">
-          <div class="left-item text-center">
-            <p>{{ typeIncident.NameTypeIncident }}</p>
+  
+      <mat-select  [(ngModel)]="idTypeIncident">
+        <mat-option
+          *ngFor="let typeIncident of typeIncidents"
+          [value]="typeIncident.IdTypeIncident"
+          
+        >
+          <div class="grid-container align-items-center justify-content-center">
+            <div class="left-item text-center">
+              <p>{{ typeIncident.NameTypeIncident }}</p>
+            </div>
+            <div class="right-item">
+              <span
+                class="mdi mdi-information-outline"
+                mat-raised-button
+                matTooltip="{{ typeIncident.Description }}"
+                aria-label="Button that displays a tooltip when focused or hovered over"
+              ></span>
+            </div>
           </div>
-          <div class="right-item">
-            <span
-              class="mdi mdi-information-outline"
-              mat-raised-button
-              matTooltip="{{ typeIncident.Description }}"
-              aria-label="Button that displays a tooltip when focused or hovered over"
-            ></span>
-          </div>
-        </div>
-      </mat-option>
-    </mat-select>
+        </mat-option>
+      </mat-select>
+
+   
   </mat-form-field>
   <mat-form-field class="example-full-width col-12">
     <mat-label>Deja un comentario</mat-label>

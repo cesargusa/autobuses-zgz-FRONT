@@ -38,17 +38,17 @@ export class ListBusLinesComponent implements OnInit {
 
   ngOnInit(): void {
 
-    if (this.auth.getLogged() == true) {
-      this.userId = this.auth.getUserId();
-      this.http
-        .get<any>(`${environment.urlBack}/api/LinesFavorites/${this.userId}`)
-        .subscribe((res) => {
-          res.forEach((line: any) => {
-            this.favoritesLines.push(line.NumberLine);
-          });
-        });
-    }
-    //Llama al cargar la pagina por primera vez
+    // if (this.auth.getLogged() == true) {
+    //   this.userId = this.auth.getUserId();
+    //   this.http
+    //     .get<any>(`${environment.urlBack}/api/LinesFavorites/${this.userId}`)
+    //     .subscribe((res) => {
+    //       res.forEach((line: any) => {
+    //         this.favoritesLines.push(line.NumberLine);
+    //       });
+    //     });
+    // }
+
     this.getData();
 
     // this.favoritesLines.forEach(element => {
@@ -87,8 +87,7 @@ const URL =
         this.errorLines = true;
       },
     });
-    console.log(this.busLines)
-    console.log(this.busLinesString)
+
   }
 
   filterBusLines() {

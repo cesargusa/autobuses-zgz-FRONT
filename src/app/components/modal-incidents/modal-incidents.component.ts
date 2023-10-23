@@ -32,7 +32,6 @@ export class ModalIncidentsComponent {
     const url = `${environment.urlBack}/api/Incidents`;
     await this.http.get<any>(url).subscribe((res) => {
       this.typeIncidents = [...res];
-      console.log(this.typeIncidents);
       this.isLoadingTypeIncidents = false;
     });
 
@@ -50,11 +49,9 @@ export class ModalIncidentsComponent {
       IdUser: this.authService.getUserId(),
       DescriptionIncident: this.inputCommentIncident,
     };
-    console.log(bodyCreateIncident);
     this.http
       .post(urlCreateIncident, bodyCreateIncident)
       .subscribe((res) => {
-        console.log("Incidencia creada")
         this.toastr.success(
           `Incidencia Creada`,
           'Se ha creado correctamente',

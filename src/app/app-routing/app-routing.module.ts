@@ -9,8 +9,8 @@ import { PerfilComponent } from '../pages/perfil/perfil.component';
 
 // Define las rutas de tu aplicación
 const routes: Routes = [
-  { path: '', redirectTo: 'Home', pathMatch: 'full' }, // Redirigir a la ruta /inicio por defecto
-  { path: 'Home', component: HomeComponent },
+  { path: '', redirectTo: '', pathMatch: 'full' }, // Redirigir a la ruta /inicio por defecto
+  { path: '', component: HomeComponent },
   { path: 'BusLineInfo/:lineId', component: BusLineInfoComponent },
   { path: 'Register', component: RegisterComponent },
   {path: 'Login', component: LoginComponent},

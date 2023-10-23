@@ -9,7 +9,7 @@ import { BusLineInfoResult } from 'src/app/model/bus-line-result';
   styleUrls: ['./lines-display.component.css']
 })
 export class LinesDisplayComponent {
-
+  @Input() about: string[] | undefined;
   @Input() descriptions: string[] | undefined; // Propiedad de entrada para recibir las descripciones desde el componente padre
   @Input() spinnerLines: boolean | undefined; // Propiedad de entrada para recibir las descripciones desde el componente padre
   @Input() busLines: BusLineInfoResult[] | undefined;

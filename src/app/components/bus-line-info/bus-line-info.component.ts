@@ -18,11 +18,13 @@ export class BusLineInfoComponent implements OnInit {
   lastUpdated: string = '';
   description: string = '';
   title: string = '';
+  about:string ="";
   titleSort: string[] = [];
   spinnerTrue: boolean = false;
   busLines:BusLineInfoResult[] = [];
   descriptions: string[] = [];
   spinnerLines: boolean = true;
+  coordinates:number[][] =[];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -38,24 +40,34 @@ export class BusLineInfoComponent implements OnInit {
     } else {
       // aquí puedes hacer lo que necesites con el parámetro
     }
-    console.log(this.lineId);
     this.getLineInfo();
   }
 
   getLineInfo() {
     this.spinnerLines = true;
+  
     this.busLineService.GetLineInfo(this.lineId).subscribe((res) => {
-      this.busLines = res.result
-      console.log(this.busLines.length);
-      this.totalCount = res.totalCount;
-      this.lastUpdated = moment(res.lastUpdated).format('DD/MM/YYYY hh:mm:ss');
-      this.description = res.description;
-      this.title = res.title;
-      this.descriptions = this.busLines.map(busLine => busLine.description);
-      console.log(this.descriptions);
-      this.spinnerLines = false;
+      if(res != null){
+        this.busLines = res.result;
+        this.totalCount = res.totalCount;
+        this.lastUpdated = moment(res.lastUpdated).format('DD/MM/YYYY hh:mm:ss');
+        this.description = res.description;
+        this.title = res.title;
+        this.about = res.about;
+        this.descriptions = this.busLines.map(busLine => busLine.description);
+        this.busLines.forEach(coordinate => {
+          if(coordinate.geometry.type == "Point"){
+            this.coordinates.push(coordinate.geometry.coordinates)
+          }
+        });
+      } 
+        else this.busLines = [];
+
+  
+      // Ahora que los datos se han cargado, establece spinnerLines en false.
+        this.spinnerLines = false;
     });
-    if(this.busLines.length == 0) this.spinnerLines = false;
   }
+  
   migasPan() {}
 }
